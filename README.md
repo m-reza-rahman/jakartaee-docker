@@ -4,11 +4,11 @@ This repository shows several key trade-offs to consider while using Docker and 
 The basic Java EE application used throughout is in the [javaee](/javaee) folder. 
 
 Factors demostrated include:
-* Using thin WARs with Docker.
-* Using uber jars with Docker.
-* Using hollow uber-jars with Docker.
-* Deploying applications within Docker images.
-* Deploying applications through admin ports exposed out of Docker.
-* Auto-deploying applications through mounted external Docker volumes.
-* How to make application server administration, clustering, autodiscovery and load-balancing work with Docker clusters, networking, and Kubernetes deployments.
-* How your CI/CD pipeline looks like with Java EE, Docker and Kubernetes.
+* Using thin WARs with Docker. The [exposed-port](/exposed-port) folder shows how this is done.
+* Using uber jars with Docker. The [exposed-port](/exposed-port) folder shows how this is done.
+* Using hollow uber-jars with Docker. The [exposed-port](/exposed-port) folder shows how this is done.
+* Deploying applications within Docker images. The [exposed-port](/exposed-port) folder shows how this is done.
+* Deploying applications through admin ports exposed out of Docker. The [exposed-port](/exposed-port) folder shows how this is done.
+* Auto-deploying applications through mounted external Docker volumes. The [exposed-port](/exposed-port) folder shows how this is done.
+* How to make application server administration, clustering, autodiscovery and load-balancing work with Docker clusters, networking, and Kubernetes deployments. The [exposed-port](/exposed-port) folder shows how this is done.
+* How your CI/CD pipeline looks like with Java EE, Docker and Kubernetes. The [exposed-port](/exposed-port) folder shows how this is done.
