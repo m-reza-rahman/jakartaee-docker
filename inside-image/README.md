@@ -1,4 +1,4 @@
-# Effective Docker and Kubernetes for Java EE Developers
+# Packaging Java EE Applications with Docker Images
 
 There are several key trade-offs to consider while using Docker and Kubernetes with Java EE applications. Examples include whether to use 
 thin WARs, fat JARs, or hollow uber-JARs to effectively work with Docker repositories, layering, and caching; whether to deploy applications within 
