@@ -4,7 +4,7 @@ This repository shows several key trade-offs to consider while using Docker and 
 The basic Java EE application used throughout is in the [javaee](/javaee) folder. 
 
 Factors demostrated include:
-* Using thin WARs with Docker. The [exposed-port](/exposed-port) folder shows how this is done.
+* Using thin WARs with Docker. The [thin-war](/thin-war) folder shows how this is done.
 * Using uber jars with Docker. The [exposed-port](/exposed-port) folder shows how this is done.
 * Using hollow uber-jars with Docker. The [hollow-uber-jar](/hollow-uber-jar) folder shows how this is done.
 * Deploying applications within Docker images. The [inside-image](/inside-image) folder shows how this is done.
