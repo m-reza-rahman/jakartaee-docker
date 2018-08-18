@@ -1,7 +1,4 @@
-# Effective Docker and Kubernetes for Java EE Developers
+# Auto-Deploying Java EE Applications through Mounted Docker Volumes 
+As opposed to deploying applications within Docker images, this demo will show an alternative way of deploying Java EE applications on Docker. Application server auto-deploy directories will point to external Docker mounted volumes. When the files in the mounted volumes change, the server inside Docker will auto-deploy it.
 
-There are several key trade-offs to consider while using Docker and Kubernetes with Java EE applications. Examples include whether to use 
-thin WARs, fat JARs, or hollow uber-JARs to effectively work with Docker repositories, layering, and caching; whether to deploy applications within 
-images, through exposed admin ports or as autodeployed mounted external volumes; how Docker clusters, networking, and Kubernetes deployments align 
-with application server administration, clustering, autodiscovery, and load-balancing; 
-how the CI/CD pipeline of your application can be adapted to Docker and Kubernetes; and many others.
+TODO Hillmer will do this part.
