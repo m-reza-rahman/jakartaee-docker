@@ -19,12 +19,12 @@ mvn package
 
 This application is composed by:
 
-- **A RESTFul service*:** http://localhost:8080/javaee-cafe/webapi/cafeRS
+- **A RESTFul service*:** protocol://hostname:port/javaee-cafe/webapi/cafeRS
 
-	- **_GET by Id_**: http://localhost:8080/javaee-cafe/webapi/cafeRS/{id} 
-	- **_GET all_**: http://localhost:8080/javaee-cafe/webapi/cafeRS/all 
+	- **_GET by Id_**: protocol://hostname:port/javaee-cafe/webapi/cafeRS/{id} 
+	- **_GET all_**: protocol://hostname:port/javaee-cafe/webapi/cafeRS/all 
 	- **_POST_** to add a new element
 	- **_DELETE_** to delete an element
 
 
-- **A Java Server Faces Client:** http://localhost:8080/javaee-cafe/index.xhtml
+- **A Java Server Faces Client:** protocol://hostname:port/javaee-cafe/index.xhtml

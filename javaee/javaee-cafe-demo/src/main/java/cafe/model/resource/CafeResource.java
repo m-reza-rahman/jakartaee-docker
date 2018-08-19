@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -23,6 +22,7 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import javax.inject.Inject;
 
 /**
  * REST Web Service
@@ -39,7 +39,7 @@ public class CafeResource {
 	private static final Logger logger =
 			Logger.getLogger( "cafe.model.resource.cafeRS" );
 
-	@EJB
+	@Inject
 	private CafeEJBBean cafeEJBBean;
 
 	/**
@@ -62,7 +62,9 @@ public class CafeResource {
 			logger.log(Level.SEVERE,
 					   "Error calling getAllCoffees()",
 					   new Object[]{ex.getMessage()});
+			ex.printStackTrace();
 		}
+
 		return coffeeList;
 	}
 

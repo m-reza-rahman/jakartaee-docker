@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.NotEmpty;
@@ -25,7 +26,7 @@ import javax.ws.rs.core.MediaType;
 public class CafeCRUD implements Serializable {
 
 	private static final Logger logger = Logger.getLogger( "cafe.web.CafeCRUD" );
-	private final String baseUri = "http://localhost:8080/javaee-cafe/webapi/cafeRS";
+	private String baseUri;
 	private Client client;
 
 	@NotNull
@@ -47,8 +48,9 @@ public class CafeCRUD implements Serializable {
 	@PostConstruct
 	private void constructor() {
 		try {
+			baseUri = FacesContext.getCurrentInstance().getExternalContext().getRequestScheme()+"://localhost:"+
+					FacesContext.getCurrentInstance().getExternalContext().getRequestServerPort() + "/javaee-cafe/webapi/cafeRS";
 			this.client = ClientBuilder.newClient();
-
 			this.getAllCoffees();
 		}
 		catch (IllegalArgumentException | NullPointerException | WebApplicationException ex) {
@@ -80,14 +82,6 @@ public class CafeCRUD implements Serializable {
 				.path( coffee.getId().toString() )
 				.request( )
 				.delete( );
-
-/*
-		WebTarget OrderByIdTarget =
-				client.target("http://localhost:8080/orders/" + orderIdToDelete);
-		boolean response = OrderByIdTarget.request().delete(Boolean.class);
-		*/
-
-
 		this.getAllCoffees();
 	}
 
