@@ -48,7 +48,7 @@ public class CafeCRUD implements Serializable {
 	@PostConstruct
 	private void constructor() {
 		try {
-			baseUri = FacesContext.getCurrentInstance().getExternalContext().getRequestScheme()+"://localhost:"+
+			baseUri = FacesContext.getCurrentInstance().getExternalContext().getRequestScheme()+"://docker.for.mac.host.internal:"+
 					FacesContext.getCurrentInstance().getExternalContext().getRequestServerPort() + "/javaee-cafe/webapi/cafeRS";
 			this.client = ClientBuilder.newClient();
 			this.getAllCoffees();
