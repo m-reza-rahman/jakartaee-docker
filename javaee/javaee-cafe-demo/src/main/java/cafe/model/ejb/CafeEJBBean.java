@@ -9,15 +9,16 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import javax.ejb.Local;
 /**
  * CafeEJBBean is a stateless session bean that manages the entity Coffee .
  */
-@Stateless
+@Stateless(name="cafeEJBBean")
 public class CafeEJBBean {
 
 	private static final Logger logger =
 			Logger.getLogger( "cafe.model.ejb.CafeEJBBean" );
-	@PersistenceContext
+	@PersistenceContext(unitName="javaEEDockerDemo")
 	private EntityManager em;
 
 	public List<Coffee> getAllCoffees() {

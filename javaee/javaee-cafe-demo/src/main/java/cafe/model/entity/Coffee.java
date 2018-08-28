@@ -7,6 +7,7 @@ import java.util.GregorianCalendar;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
@@ -15,7 +16,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name = "Event")
+@XmlRootElement(name = "Coffee")
 @XmlAccessorType(XmlAccessType.FIELD)
 @Entity
 @NamedQuery(name = "findAllCoffees",
@@ -24,7 +25,8 @@ public class Coffee implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Coffee_Generator")
+    @SequenceGenerator(name="Coffee_Generator", sequenceName = "COFFEE_SEQ", allocationSize=1)
     private Long id;
     protected String name;
     protected Double price;
