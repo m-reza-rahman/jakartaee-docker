@@ -5,7 +5,20 @@ This is the basic Java EE 8.0 application used throughout the Docker and Kuberte
 
 - Maven
 - JDK8+
-- A datasource connection: DefaultDataSource
+- Postgres Database
+
+## Database creation
+
+This demo can be run with a standalone database of a dockerized database. To run Postgres on Docker see [Run Postgres Database on a Docker container](DATABASE.md)
+
+Datasource is configured on WEB-INF/web.xml file, by default with next properties:
+
+**Server:** localhost
+**Port:** 5432
+**Database-name:** postgres
+**User:** postgres
+**Password:** 123
+    
 
 ## Build
 
