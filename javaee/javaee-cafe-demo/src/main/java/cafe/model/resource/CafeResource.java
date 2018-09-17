@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -23,12 +24,13 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import javax.ejb.EJB;
 /**
  * REST Web Service
  *
  */
+
 @Named
+@RequestScoped
 @Path("cafeRS")
 public class CafeResource {
 
@@ -39,7 +41,7 @@ public class CafeResource {
 	private static final Logger logger =
 			Logger.getLogger( "cafe.model.resource.cafeRS" );
 
-	@EJB
+	@Inject
 	private CafeEJBBean cafeEJBBean;
 
 	/**
@@ -74,7 +76,7 @@ public class CafeResource {
 	 *
 	 * @param coffee
 	 * @return Response URI for the Coffee added
-	 * @see Coffee.java
+	 * @see Coffee
 	 */
 	@POST
 	@Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})

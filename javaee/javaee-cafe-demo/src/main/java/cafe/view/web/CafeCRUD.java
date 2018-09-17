@@ -4,6 +4,8 @@ import cafe.model.ejb.CafeEJBBean;
 import cafe.model.entity.Coffee;
 
 import java.io.Serializable;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -12,6 +14,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.NotEmpty;
 import javax.ws.rs.WebApplicationException;
@@ -48,12 +51,14 @@ public class CafeCRUD implements Serializable {
 	@PostConstruct
 	private void constructor() {
 		try {
-			baseUri = FacesContext.getCurrentInstance().getExternalContext().getRequestScheme()+"://docker.for.mac.host.internal:"+
+			InetAddress inetAddress = InetAddress.getByName(((HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest()).getServerName());
+
+			baseUri = FacesContext.getCurrentInstance().getExternalContext().getRequestScheme()+"://"+inetAddress.getHostName() + ":" +
 					FacesContext.getCurrentInstance().getExternalContext().getRequestServerPort() + "/javaee-cafe/webapi/cafeRS";
 			this.client = ClientBuilder.newClient();
 			this.getAllCoffees();
 		}
-		catch (IllegalArgumentException | NullPointerException | WebApplicationException ex) {
+		catch (IllegalArgumentException | NullPointerException | WebApplicationException | UnknownHostException ex) {
 			logger.severe( "processing of HTTP response failed" );
 			ex.printStackTrace();
 		}
@@ -97,7 +102,7 @@ public class CafeCRUD implements Serializable {
 	/**
 	 * Set the value of name
 	 *
-	 * @param birthday new value of name
+	 * @param name new value of name
 	 */
 	public void setName(String name) {
 		this.name = name;
