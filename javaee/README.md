@@ -9,7 +9,7 @@ This is the basic Java EE 8.0 application used throughout the Docker and Kuberte
 
 ## Database creation
 
-This demo can be run with a standalone database of a dockerized database. To run Postgres on Docker see [Run Postgres Database on a Docker container](DATABASE.md)
+This demo can be run with a standalone database of a dockerized database. To run Postgres on Docker see [Run Postgres Database on a Docker container](javaee-cafe-demo/database/README.md)
 
 Datasource is configured on WEB-INF/web.xml file, by default with next properties:
 
@@ -18,7 +18,12 @@ Datasource is configured on WEB-INF/web.xml file, by default with next propertie
 **Database-name:** postgres
 **User:** postgres
 **Password:** 123
-    
+
+The database can be run with next command
+
+```
+docker run -it --rm  --name JavaEEDemoDB -v pgdata:/var/lib/postgresql/data -p 5432:5432 -d postgres
+```
 
 ## Build
 

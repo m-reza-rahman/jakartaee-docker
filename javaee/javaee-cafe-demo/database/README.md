@@ -1,5 +1,7 @@
 # Run Postgres Database on a Docker container 
 
+The database can be created via docker-compose and manual installation 
+
 **Via docker-compose.yml**
 
 1. Run docker-compose command and wait for it to initialize completely:
@@ -29,7 +31,7 @@
         (1 row)
 		```
 
-**Manual configuration**
+**Manual installation**
 
 
 1. Check the existent volumes:

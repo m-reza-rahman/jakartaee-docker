@@ -40,6 +40,8 @@
  Application javaee-cafe does not have any shared libraries that provide
 org.postgresql.ds.PGConnectionPoolDataSource for dataSource java:global/JavaEEonDockerDemoDS.
 -->
+
+    <!--
     <data-source>
         <description>Java EE Docker Demo data source.</description>
         <name>java:global/JavaEEonDockerDemoDS</name>
@@ -54,6 +56,5 @@ org.postgresql.ds.PGConnectionPoolDataSource for dataSource java:global/JavaEEon
             <value>;create=true</value>
         </property>
     </data-source>
-
-
+-->
 </web-app>

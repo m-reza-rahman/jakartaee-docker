@@ -24,6 +24,8 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import javax.ejb.EJB;
+
 /**
  * REST Web Service
  *
@@ -41,7 +43,8 @@ public class CafeResource {
 	private static final Logger logger =
 			Logger.getLogger( "cafe.model.resource.cafeRS" );
 
-	@Inject
+	//@Inject  <--DONT WORK IN WEBSPHERE
+	@EJB
 	private CafeEJBBean cafeEJBBean;
 
 	/**
