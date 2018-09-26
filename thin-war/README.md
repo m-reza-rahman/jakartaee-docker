@@ -1,7 +1,7 @@
 # Java EE Thin Wars with Docker and WebSphere Liberty
 This demo shows using Java EE thin wars with Docker repositories, layering, and caching. It uses Liberty server under Docker using the `websphere-liberty` image that is available from the online Docker Hub repository.
 
-#Note: I added instructions to run the Java EE from a Dockerfile that added the .war file, there are also the instructions with the external volume
+# Note: I added instructions to run the Java EE from a Dockerfile that added the .war file, there are also the instructions with the external volume
 
 ## Deploying Java EE Demo Application .war file via Dockerfile
 
@@ -81,7 +81,7 @@ This demo shows using Java EE thin wars with Docker repositories, layering, and 
 
 
 
-#Note: These are the instructions with an external volume (our initial idea) I decide to maintain this for the moment, if it does not work I remove it
+# Note: These are the instructions with an external volume (our initial idea) I decide to maintain this for the moment, if it does not work I remove it
 
 ## Deploying Java EE Demo Application .war file
 
