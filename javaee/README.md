@@ -9,6 +9,7 @@ We use Eclipse but you can use any Maven capable IDE such as NetBeans. We use We
 - Install the Eclipse IDE for Java EE Developers from [here](https://www.eclipse.org/downloads/packages/).
 - Install WebSphere Liberty in Eclipse by following the instructions [here](https://developer.ibm.com/wasdev/downloads/liberty-profile-using-eclipse/). Make sure to install WebSphere Liberty with full Java EE 8 (you can automatically download right from the IDE).
 - Install Docker for your OS.
+- Download this repository somewhere in your file system (easiest way might be to download as a zip and extract).
 
 ## Database Creation
 The first step to getting the application running is getting the database up. The simplest way to actually do this is through Docker. Please follow the instructions [here](javaee-cafe-demo/database/README.md) to get the database running.
