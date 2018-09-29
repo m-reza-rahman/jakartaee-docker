@@ -30,7 +30,7 @@ Datasource is configured on WEB-INF/web.xml file, by default with next propertie
 The database can be run with next command
 
 ```
-docker run -it --rm  --name JavaEEDemoDB -v pgdata:/var/lib/postgresql/data -p 5432:5432 -d postgres
+docker run -it --rm --name JavaEECafeDB -v pgdata:/var/lib/postgresql/data -p 5432:5432 postgres
 ```
 
 ## Build
