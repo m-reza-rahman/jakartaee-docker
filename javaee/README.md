@@ -15,7 +15,9 @@ We use Eclipse but you can use any Maven capable IDE such as NetBeans. We use We
 The first step to getting the application running is getting the database up. The simplest way to actually do this is through Docker. Please follow the instructions [here](javaee-cafe-demo/database/README.md) to get the database running.
 
 ## Running the Application
-
+The next step is to get the application up and running. Follow the steps below to do so.
+* Start Eclipse.
+* Get the javaee-cafe application into the IDE. In order to do that, go to File -> Import -> Maven -> Existing Maven Projects. Then browse to where you have this repository code in your file system and select javaee/javaee-cafe. Accept the rest of the defaults and finish.
 
 Datasource is configured on WEB-INF/web.xml file, by default with next properties:
 
