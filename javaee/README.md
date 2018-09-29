@@ -26,6 +26,8 @@ The next step is to get the application up and running. Follow the steps below t
 * Find out where Eclipse has installed WebSphere Liberty in your file system. In the Servers panel, double click to open the WebSphere Liberty configuration. Click on Runtime Environment. Note the installation path.
 * Browse to where you have this repository code in your file system. You will need to copy the server.xml and Postgres driver to the WebSphere install location. Both of these files are located under javaee/server. Copy the Postgres driver into the WebSphere Liberty installation location under usr/shared/resources. Now copy the server.xml into usr/servers/[your-server-name]/. The server name is probably defaultServer or newServer.
 * Get the javaee-cafe application into the IDE. In order to do that, go to File -> Import -> Maven -> Existing Maven Projects. Then browse to where you have this repository code in your file system and select javaee/javaee-cafe. Accept the rest of the defaults and finish.
+* Once the application loads, you should do a full Maven build by going to Right click the application -> Run As -> Maven install.
+* It is now time to run the application. Go to Right click the application -> Run As -> Run on Server. Make sure to choose Liberty as the server going forward. Just accept the defaults and wait for the application to finish running.
 
 Datasource is configured on WEB-INF/web.xml file, by default with next properties:
 
