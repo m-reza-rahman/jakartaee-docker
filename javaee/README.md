@@ -12,7 +12,13 @@ We use Eclipse but you can use any Maven capable IDE such as NetBeans. We use We
 - Download this repository somewhere in your file system (easiest way might be to download as a zip and extract).
 
 ## Database Creation
-The first step to getting the application running is getting the database up. The simplest way to actually do this is through Docker. Please follow the instructions [here](javaee-cafe-demo/database/README.md) to get the database running.
+The first step to getting the application running is getting the database up. The simplest way to actually do this is through Docker. Please follow the instructions below to get the database running.
+* Make sure Docker is running. Open a console.
+* Enter the following command and wait for the database to come up fully.
+```
+docker run -it --rm --name JavaEECafeDB -v pgdata:/var/lib/postgresql/data -p 5432:5432 postgres
+```
+* The database is now ready. To stop it, simply press Control-C.
 
 ## Running the Application
 The next step is to get the application up and running. Follow the steps below to do so.
@@ -29,9 +35,6 @@ Datasource is configured on WEB-INF/web.xml file, by default with next propertie
 
 The database can be run with next command
 
-```
-docker run -it --rm --name JavaEECafeDB -v pgdata:/var/lib/postgresql/data -p 5432:5432 postgres
-```
 
 ## Build
 
