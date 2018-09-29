@@ -11,7 +11,7 @@ The database can be started either via docker-compose or manually. Either option
     ```
     
 	**Note:** The docker-compose.yml has configurations to create the database objects and configure the database 
-	to use a volume name `mounted-volume_pgdata`. The container created is named `JavaEEDemoDB`.
+	to use a volume name `pgdata`. The container created is named `JavaEEDemoDB`.
 
 2. Connect to the postgres database:
 	
