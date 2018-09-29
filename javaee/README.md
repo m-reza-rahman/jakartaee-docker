@@ -23,37 +23,24 @@ docker run -it --rm --name JavaEECafeDB -v pgdata:/var/lib/postgresql/data -p 54
 ## Running the Application
 The next step is to get the application up and running. Follow the steps below to do so.
 * Start Eclipse.
+* Find out where Eclipse has installed WebSphere Liberty in your file system. In the Servers panel, double click to open the WebSphere Liberty configuration. Click on Runtime Environment. Note the installation path.
+* Browse to where you have this repository code in your file system. You will need to copy the server.xml and Postgres driver to the WebSphere install location. Both of these files are located under javaee/server. Copy the Postgres driver into the WebSphere Liberty installation location under usr/shared/resources. Now copy the server.xml into usr/servers/[your-server-name]/. The server name is probably defaultServer or newServer.
 * Get the javaee-cafe application into the IDE. In order to do that, go to File -> Import -> Maven -> Existing Maven Projects. Then browse to where you have this repository code in your file system and select javaee/javaee-cafe. Accept the rest of the defaults and finish.
-
-Datasource is configured on WEB-INF/web.xml file, by default with next properties:
-
-**Server:** localhost
-**Port:** 5432
-**Database-name:** postgres
-**User:** postgres
-**Password:** 123
-
-The database can be run with next command
-
-
-## Build
-
-Clone this repository and build the examples using:
-
-```
-mvn package
-```
+* Once the application loads, you should do a full Maven build by going to Right click the application -> Run As -> Maven install.
+* It is now time to run the application. Go to Right click the application -> Run As -> Run on Server. Make sure to choose Liberty as the server going forward. Just accept the defaults and wait for the application to finish running.
+* Once the application runs, Eclise will open it up in a browser. The application is available at [http://localhost:9080/javaee-cafe](http://localhost:9080/javaee-cafe).
 
 ## Content
 
-This application is composed by:
+The application is composed of:
 
-- **A RESTFul service*:** protocol://hostname:port/javaee-cafe/webapi/cafeRS
+- **A RESTFul service*:** protocol://hostname:port/javaee-cafe/rest/coffees
 
-	- **_GET by Id_**: protocol://hostname:port/javaee-cafe/webapi/cafeRS/{id} 
-	- **_GET all_**: protocol://hostname:port/javaee-cafe/webapi/cafeRS/all 
-	- **_POST_** to add a new element
-	- **_DELETE_** to delete an element
+	- **_GET by Id_**: protocol://hostname:port/javaee-cafe/rest/coffees/{id} 
+	- **_GET all_**: protocol://hostname:port/javaee-cafe/rest/coffees
+	- **_POST_** to add a new element at: protocol://hostname:port/javaee-cafe/rest/coffees
+	- **_DELETE_** to delete an element at: protocol://hostname:port/javaee-cafe/rest/coffees/{id}
 
+- **A JSF Client:** protocol://hostname:port/javaee-cafe/index.xhtml
 
-- **A Java Server Faces Client:** protocol://hostname:port/javaee-cafe/index.xhtml
+Feel free to take a minute to explore the application.
