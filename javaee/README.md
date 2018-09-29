@@ -7,7 +7,7 @@ We use Eclipse but you can use any Maven capable IDE such as NetBeans. We use We
 
 - Install JDK 8+.
 - Install the Eclipse IDE for Java EE Developers from [here](https://www.eclipse.org/downloads/packages/).
-- Istall Docker for your OS.
+- Install Docker for your OS.
 
 ## Database creation
 
