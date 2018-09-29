@@ -7,7 +7,7 @@ We use Eclipse but you can use any Maven capable IDE such as NetBeans. We use We
 
 - Install JDK 8+.
 - Install the Eclipse IDE for Java EE Developers from [here](https://www.eclipse.org/downloads/packages/).
-- Install WebSphere Liberty in Eclipse by following the instructions [here](https://developer.ibm.com/wasdev/downloads/liberty-profile-using-eclipse/). Make sure to install WebSphere Liberty with full Java EE 8.
+- Install WebSphere Liberty in Eclipse by following the instructions [here](https://developer.ibm.com/wasdev/downloads/liberty-profile-using-eclipse/). Make sure to install WebSphere Liberty with full Java EE 8 (you can automatically download right from the IDE).
 - Install Docker for your OS.
 
 ## Database creation
