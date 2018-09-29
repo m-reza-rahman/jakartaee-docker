@@ -43,7 +43,7 @@
 				</h:column>
 				<h:column>
 					<h:commandLink value="#{messages.delete}"
-						action="#{cafe.removeCoffeeAction(coffee)}" immediate="true" />
+						action="#{cafe.removeCoffee(coffee.get('id'))}" immediate="true" />
 				</h:column>
 			</h:dataTable>
 			<div class="panel panel-default">
@@ -61,7 +61,7 @@
 					<fc:inputPrice id="price" price="#{cafe.price}" />
 					<p />
 					<h:commandButton value="#{messages.submit}"
-						action="#{cafe.addCoffeeAction}" styleClass="btn btn-default" />
+						action="#{cafe.addCoffee}" styleClass="btn btn-default" />
 				</div>
 			</div>
 		</div>

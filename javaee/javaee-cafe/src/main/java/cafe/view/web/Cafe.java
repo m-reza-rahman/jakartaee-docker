@@ -85,7 +85,7 @@ public class Cafe implements Serializable {
 				});
 	}
 
-	public void addCoffeeAction() {
+	public void addCoffee() {
 		Coffee coffee = new Coffee(this.name, this.price);
 		this.client.target(baseUri).request(MediaType.APPLICATION_JSON).post(Entity.json(coffee));
 		this.name = null;
@@ -93,8 +93,8 @@ public class Cafe implements Serializable {
 		this.getAllCoffees();
 	}
 
-	public void removeCoffeeAction(Coffee coffee) {
-		this.client.target(baseUri).path(coffee.getId().toString()).request().delete();
+	public void removeCoffee(String coffeeId) {
+		this.client.target(baseUri).path(coffeeId).request().delete();
 		this.getAllCoffees();
 	}
 }
