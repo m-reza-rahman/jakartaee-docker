@@ -1,15 +1,21 @@
-# Basic Java EE CRUD Service
-This is the basic Java EE 8.0 application used throughout the Docker and Kubertenes demos. It is a simple CRUD RESTful service. It uses Maven and Java EE 8 (JAX-RS, EJB, CDI, JPA, JSF, BEAN VALIDATION).
+# Basic Java EE CRUD Application
+This is the basic Java EE 8 application used throughout the Docker and Kubertenes demos. It is a simple CRUD application. It uses Maven and Java EE 8 (JAX-RS, EJB, CDI, JPA, JSF, Bean Validation).
 
-## Pre requisites
+We use Eclipse but you can use any Maven capable IDE such as NetBeans. We use WebSphere Liberty but you should be able to use any Java EE 8 compatiple application server such as WildFly or Payara. We use Postgres but you can use any relational database such as MySQL.
 
-- Maven
-- JDK8+
-- Postgres Database
+## Setup
 
-## Database creation
+- Install JDK 8+.
+- Install the Eclipse IDE for Java EE Developers from [here](https://www.eclipse.org/downloads/packages/).
+- Install WebSphere Liberty in Eclipse by following the instructions [here](https://developer.ibm.com/wasdev/downloads/liberty-profile-using-eclipse/). Make sure to install WebSphere Liberty with full Java EE 8 (you can automatically download right from the IDE).
+- Install Docker for your OS.
+- Download this repository somewhere in your file system (easiest way might be to download as a zip and extract).
 
-This demo can be run with a standalone database of a dockerized database. To run Postgres on Docker see [Run Postgres Database on a Docker container](javaee-cafe-demo/database/README.md)
+## Database Creation
+The first step to getting the application running is getting the database up. The simplest way to actually do this is through Docker. Please follow the instructions [here](javaee-cafe-demo/database/README.md) to get the database running.
+
+## Running the Application
+
 
 Datasource is configured on WEB-INF/web.xml file, by default with next properties:
 

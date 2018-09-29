@@ -1,26 +1,26 @@
-# Run Postgres Database on a Docker container 
+# Get Postgres Up and Running with Docker 
 
-The database can be created via docker-compose and manual installation 
+The database can be started either via docker-compose or manually. Either option is fine. 
 
 **Via docker-compose.yml**
 
-1. Run docker-compose command and wait for it to initialize completely:
+1. Make sure Docker is running. Open a console. Change diretories within this repository code in your file system to javaee\javaee-cafe-demo\database. Run the following docker-compose command and wait for it to initialize completely:
 
     ```bash
     $ docker-compose -f docker-compose.yml up
     ```
     
 	**Note:** The docker-compose.yml has configurations to create the database objects and configure the database 
-	to use a volume name `mounted-volume_pgdata`, the container's name created is `JavaEEDemoDB`
+	to use a volume name `pgdata`. The container created is named `JavaEEDemoDB`.
 
-2. Connect to the postgres database:
+2. You can now connect to the postgres database.
 	
-	- Start the PostgreSQL interactive terminal `psql`:
+	-  Open up another console. Start the PostgreSQL interactive terminal `psql`:
 		
 		```bash
 		$ docker exec -it JavaEEDemoDB psql -U postgres
 		```
-	- Execute `dt` commando to check the table created:
+	- Execute the `dt` commando to check the table created:
 		
 		```bash
 		postgres=# \dt
@@ -31,8 +31,9 @@ The database can be created via docker-compose and manual installation
         (1 row)
 		```
 
-**Manual installation**
+**Manual Setup**
 
+If you want, you can do what was automated via docker-compose.yml manually. Below are the steps.
 
 1. Check the existent volumes:
 
