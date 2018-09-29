@@ -10,9 +10,8 @@ We use Eclipse but you can use any Maven capable IDE such as NetBeans. We use We
 - Install WebSphere Liberty in Eclipse by following the instructions [here](https://developer.ibm.com/wasdev/downloads/liberty-profile-using-eclipse/). Make sure to install WebSphere Liberty with full Java EE 8 (you can automatically download right from the IDE).
 - Install Docker for your OS.
 
-## Database creation
-
-This demo can be run with a standalone database of a dockerized database. To run Postgres on Docker see [Run Postgres Database on a Docker container](javaee-cafe-demo/database/README.md)
+## Database Creation
+The first step to getting the application running is getting the database up. The simplest way to actually do this is through Docker. Please follow the instructions [here](javaee-cafe-demo/database/README.md) to get the database running.
 
 Datasource is configured on WEB-INF/web.xml file, by default with next properties:
 
