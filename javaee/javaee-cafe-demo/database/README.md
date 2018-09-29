@@ -4,7 +4,7 @@ The database can be started either via docker-compose or manually. Either option
 
 **Via docker-compose.yml**
 
-1. Run the following docker-compose command and wait for it to initialize completely:
+1. Make sure Docker is running. Open a console. Change diretories within this repository code in your file system to javaee\javaee-cafe-demo\database. Run the following docker-compose command and wait for it to initialize completely:
 
     ```bash
     $ docker-compose -f docker-compose.yml up
