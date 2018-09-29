@@ -31,8 +31,9 @@ The database can be started either via docker-compose or manually. Either option
         (1 row)
 		```
 
-**Manual installation**
+**Manual Setup**
 
+If you want, you can do what was automated via docker-compose.yml manually. Below are the steps.
 
 1. Check the existent volumes:
 
