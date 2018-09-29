@@ -22,9 +22,8 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>javax.ws.rs.core.Application</servlet-name>
-        <url-pattern>/webapi/*</url-pattern>
+        <url-pattern>/rest/*</url-pattern>
     </servlet-mapping>
-
 
     <session-config>
         <session-timeout>
@@ -34,27 +33,4 @@
     <welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
-
-<!--[ERROR   ] CWNEN0011E: The injection engine failed to process bindings for the metadata
- due to the following error: java.sql.SQLNonTransientException: J2CA8022E:
- Application javaee-cafe does not have any shared libraries that provide
-org.postgresql.ds.PGConnectionPoolDataSource for dataSource java:global/JavaEEonDockerDemoDS.
--->
-
-    <!--
-    <data-source>
-        <description>Java EE Docker Demo data source.</description>
-        <name>java:global/JavaEEonDockerDemoDS</name>
-        <class-name>org.postgresql.ds.PGConnectionPoolDataSource</class-name>
-        <server-name>localhost</server-name>
-        <port-number>5432</port-number>
-        <database-name>postgres</database-name>
-        <user>postgres</user>
-        <password>123</password>
-        <property>
-            <name>connectionAttributes</name>
-            <value>;create=true</value>
-        </property>
-    </data-source>
--->
 </web-app>
