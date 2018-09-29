@@ -1,4 +1,4 @@
-package cafe.model.resource;
+package cafe.web.rest;
 
 import java.lang.invoke.MethodHandles;
 import java.net.URI;

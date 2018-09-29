@@ -1,4 +1,4 @@
-package cafe.view.web;
+package cafe.web.view;
 
 import java.io.Serializable;
 import java.lang.invoke.MethodHandles;
