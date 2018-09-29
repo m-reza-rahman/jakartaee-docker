@@ -1,11 +1,13 @@
-# Basic Java EE CRUD Service
-This is the basic Java EE 8.0 application used throughout the Docker and Kubertenes demos. It is a simple CRUD RESTful service. It uses Maven and Java EE 8 (JAX-RS, EJB, CDI, JPA, JSF, BEAN VALIDATION).
+# Basic Java EE CRUD Application
+This is the basic Java EE 8 application used throughout the Docker and Kubertenes demos. It is a simple CRUD application. It uses Maven and Java EE 8 (JAX-RS, EJB, CDI, JPA, JSF, Bean Validation).
 
-## Pre requisites
+We use Eclipse but you can use any Maven capable IDE such as NetBeans. We use WebSphere Liberty but you should be able to use any Java EE 8 compatiple application server such as WildFly or Payara. We use Postgres but you can use any relational database such as MySQL.
 
-- Maven
-- JDK8+
-- Postgres Database
+## Setup
+
+- Install JDK 8+.
+- Install the Eclipse IDE for Java EE Developers from [here](https://www.eclipse.org/downloads/packages/).
+- Istall Docker for your OS.
 
 ## Database creation
 
