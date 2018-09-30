@@ -54,6 +54,14 @@ This demo shows using Java EE thin wars with Docker repositories, layering, and 
 	$ docker run --rm -d -p 80:9080 --name=JavaEEDemoWLP javaeedemo-wlp
 	```
 
+	To run WebSphere Liberty with the Admin Center Console it is necessary to open the port 9443:
+	 	
+	```bash
+	$ docker run --rm -d -p 80:9080 -p 443:9443  --name=JavaEEDemoWLP javaeedemo-wlp
+	```
+	
+	To access to the Admin Center Console open the next URL in a browser `https://localhost/adminCenter`
+	
 8. Use the following command to watch the server logs:
 
 	```bash
