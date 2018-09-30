@@ -60,7 +60,7 @@ This demo shows using Java EE thin wars with Docker repositories, layering, and 
 	$ docker run --rm -d -p 80:9080 -p 443:9443  --name=JavaEEDemoWLP javaeedemo-wlp
 	```
 	
-	To access to the Admin Center Console open the next URL in a browser `https://localhost/adminCenter`
+	To access to the Admin Center Console open the next URL in a browser `https://localhost/adminCenter`. The username for login is `admin` and de password `123456` 
 	
 8. Use the following command to watch the server logs:
 
