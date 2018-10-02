@@ -24,7 +24,7 @@
 		<user name="admin" password="admin123"/>
 	</basicRegistry>
 
-	<keyStore id="defaultKeyStore" password="Liberty"/>
+	<keyStore id="defaultKeyStore" password="admin123"/>
 
 	<!-- To access this server from a remote client add a host attribute to 
 		the following element, e.g. host="*" -->
