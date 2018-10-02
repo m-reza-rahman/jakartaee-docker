@@ -1,3 +1,5 @@
+sudo docker run -it --rm -v /home/reza/webapps:/config/dropins/ -p 9080:9080 javaee-cafe
+
 **Note:** This part is with the external volume, as now I am working with a dockerfile solution that included the .war file maybe this part should be removed
 
 
