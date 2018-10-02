@@ -3,7 +3,6 @@
 	<!-- Enable features -->
 	<featureManager>
 		<feature>javaee-8.0</feature>
-		<feature>localConnector-1.0</feature>
 	</featureManager>
 
 	<!-- This template enables security. To get the full use of all the capabilities, 
@@ -43,8 +42,4 @@
 	<library id="postgresql-library">
 		<fileset dir="${shared.resource.dir}" id="PostgreSQLFileset" includes="postgresql-42.2.4.jar"/>
 	</library>
-
-	<applicationMonitor updateTrigger="mbean"/>
-
-    <webApplication id="javaee-cafe" location="javaee-cafe.war" name="javaee-cafe"/>
 </server>
