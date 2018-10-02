@@ -26,9 +26,8 @@ The next step is to get the application up and running. Follow the steps below t
 	databaseName="postgres"
 	user="postgres"
 	password=""
-        ```                   
-	**Note:** We are depending on the fact that the database is the first container to start and has the IP 172.17.0.2. For Mac and Windows users the serverName could be changed to `host.docker.internal`. That will make the container start order less significant.
-
+        ```
+* Note, we are depending on the fact that the database is the first container to start and has the IP 172.17.0.2. For Mac and Windows users the serverName could be changed to `host.docker.internal`. That will make the container start order less significant.
 * Open a console. Build a Docker image tagged `javaee-cafe` navigating to the thin-war/ directory as context and issuing the command:
 
 	```
