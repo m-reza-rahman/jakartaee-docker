@@ -1,5 +1,5 @@
 # Using Exposed Docker Admin Ports
-As opposed to deploying applications only within Docker images, this demo will show an alternative way of administering Java EE applications on Docker. Application server admin ports will be exposed outside Docker. The application will then be administered through this admin port or console.
+As opposed to only deploying applications within Docker images, this demo will show an alternative way of administering Java EE applications on Docker. Application server admin ports will be exposed outside Docker. The application will then be administered through this admin port or console.
 
 ## Start the Database with Docker
 The first step to getting the application running is getting the database up. Please follow the instructions below to get the database running.
