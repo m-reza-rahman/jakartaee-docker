@@ -4,7 +4,6 @@
 	<featureManager>
 		<feature>javaee-8.0</feature>
 		<feature>adminCenter-1.0</feature>
-		<feature>websocket-1.1</feature>
 	</featureManager>
 
 	<!-- This template enables security. To get the full use of all the capabilities, 
@@ -30,7 +29,7 @@
 		<user>admin</user>
 	</administrator-role>
 
-	<keyStore id="defaultKeyStore" password="" />
+	<keyStore id="defaultKeyStore" password="admin123" />
 
 	<!-- To access this server from a remote client add a host attribute to 
 		the following element, e.g. host="*" -->
