@@ -4,8 +4,6 @@
 	<featureManager>
 		<feature>javaee-8.0</feature>
 		<feature>localConnector-1.0</feature>
-		<feature>adminCenter-1.0</feature>
-		<feature>websocket-1.1</feature>
 	</featureManager>
 
 	<!-- This template enables security. To get the full use of all the capabilities, 
@@ -27,7 +25,7 @@
 		<user name="admin" password="admin123"/>
 	</basicRegistry>
 
-	<keyStore id="defaultKeyStore" password=""/>
+	<keyStore id="defaultKeyStore" password="admin123"/>
 
 	<!-- To access this server from a remote client add a host attribute to 
 		the following element, e.g. host="*" -->
@@ -45,8 +43,4 @@
 	<library id="postgresql-library">
 		<fileset dir="${shared.resource.dir}" id="PostgreSQLFileset" includes="postgresql-42.2.4.jar"/>
 	</library>
-
-	<remoteFileAccess>
-		<writeDir>${server.config.dir}</writeDir>
-	</remoteFileAccess>
 </server>
