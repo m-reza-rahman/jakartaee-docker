@@ -14,7 +14,8 @@ The process create two resources (pod)
 	
 	```
 	kubectl get po
-	```	
+	```
+	
 	<pre>
 	NAME                     READY   STATUS    RESTARTS   AGE
 	wlp-58464fb498-q5sbn     1/1     Running   0          10s
@@ -59,9 +60,75 @@ The process create two resources (pod)
 	```
 	curl 172.17.0.7:9080
 	```	
+	
 
-*  Command to delete the WLP cluster
+*  Command to Display information about the Deployment
 
 	```
-	kubectl delete deployment/wlp
+	kubectl get deployments wlp
+	kubectl describe deployments wlp
 	```
+
+* Create a Service object that exposes the deployment:
+
+	```
+	kubectl expose deployment wlp --type=NodePort --name=wlp-service
+	```
+	 
+* Display information about the Service:
+
+	```
+	kubectl describe services wlp-service
+	```
+	<pre>	 
+	Name:                     wlp-service
+	 Namespace:                default
+	 Labels:                   app=wlp
+	 Annotations:              <none>
+	 Selector:                 app=wlp
+	 Type:                     NodePort
+	 IP:                       10.107.188.45
+	 Port:                     port-1  9080/TCP
+	 TargetPort:               9080/TCP
+	 NodePort:                 port-1  30307/TCP
+	 Endpoints:                172.17.0.5:9080,172.17.0.7:9080
+	 Port:                     port-2  9443/TCP
+	 TargetPort:               9443/TCP
+	 NodePort:                 port-2  31089/TCP
+	 Endpoints:                172.17.0.5:9443,172.17.0.7:9443
+	 Session Affinity:         None
+	 External Traffic Policy:  Cluster
+	 Events:                   <none>
+	</pre>
+	
+	Make a note of the NodePort value for the service. For example, in the preceding output, the NodePort value is 31496.
+ 
+*  Command to test the NodePort
+ 
+ 	```
+ 	curl 10.107.188.45:9080
+ 	```	
+
+*  Command to find the assigned IP address and port If you are running your service on `Minikube`:
+
+ 	```
+ 	minikube service wlp-service --url
+ 	```
+
+	<pre> 	
+	172-0-14-31:kubernetes hacm$ 
+	http://192.168.99.100:31000
+	http://192.168.99.100:30329
+	</pre>
+
+* Command to delete the service 
+  
+ 	```
+ 	kubectl delete services wlp-service
+ 	```
+
+* Command to delete the WLP cluster
+ 
+ 	```
+ 	kubectl delete deployment/wlp
+ 	```
