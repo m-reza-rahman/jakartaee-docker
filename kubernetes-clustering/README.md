@@ -11,12 +11,17 @@ Run Database:
 Run Controller:
 
 ``cd kubernetes-clustering/controller``
+
 ``docker build -t controller .``
+
 ``docker run -it --rm -p 9080:9080 -p 9443:9443 controller``
 
 Run Member:
 
 ``copy javaee/javaee-cafe/target/javaee-cafe.war kubernetes-clustering``
+
 ``cd kubernetes-clustering/member``
+
 ``docker build -t member .``
+
 ``docker run -it --rm -p 9081:9080 -p 9444:9443 controller``
