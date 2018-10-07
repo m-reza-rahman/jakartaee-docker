@@ -24,4 +24,4 @@ Run Member:
 
 ``docker build -t member .``
 
-``docker run -it --rm -p 9081:9080 -p 9444:9443 controller``
+``docker run -it --rm -p 9081:9080 -p 9444:9443 member``
