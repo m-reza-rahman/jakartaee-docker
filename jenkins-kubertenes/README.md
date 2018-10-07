@@ -3,6 +3,8 @@
 This demo will show how Jenkins works with Java EE, Docker and Kubernetes.
 
 
+**Creating a service for an application running in two pods**
+
 * Enter the following command to create the WebSphere Cluster and wait for the process to come up fully. 
 The process create two resources (pod) 
 
@@ -68,6 +70,7 @@ The process create two resources (pod)
 	kubectl get deployments wlp
 	kubectl describe deployments wlp
 	```
+**OPCION 1 TO EXPOSE THE CLUSTER**
 
 * Create a Service object that exposes the deployment:
 
@@ -120,6 +123,59 @@ The process create two resources (pod)
 	http://192.168.99.100:31000
 	http://192.168.99.100:30329
 	</pre>
+
+ 	
+* Command to see service
+ 
+ 	```
+ 	kubectl get services
+ 	```
+ 	
+**OPCION 2 TO EXPOSE THE CLUSTER WITH A .yml file**
+
+
+ 	
+* Command to create a service from a .yml file
+ 
+ 	```
+ 	kubectl create -f service.yml
+ 	```
+ 	
+* Display information about the Service:
+
+	```
+	kubectl describe services wlp-service
+	```
+	
+	<pre>
+    Name:                     wlp-service
+    Namespace:                default
+    Labels:                   <none>
+    Annotations:              <none>
+    Selector:                 app=wlp
+    Type:                     NodePort
+    IP:                       10.104.230.20
+    Port:                     <unset>  80/TCP
+    TargetPort:               9080/TCP
+    NodePort:                 <unset>  30807/TCP
+    Endpoints:                172.17.0.5:9080,172.17.0.7:9080
+    Session Affinity:         None
+    External Traffic Policy:  Cluster
+    Events:                   <none>
+    </pre> 
+    
+*  Command to find the assigned IP address and port If you are running your service on `Minikube`:
+
+ 	```
+ 	minikube service wlp-service --url
+ 	```
+ 	WebSphere can be acceded from the URL likes next
+ 	
+ 	``` 
+ 	http://192.168.99.100:30807	
+  	```
+
+**Cleaning up**
 
 * Command to delete the service 
   

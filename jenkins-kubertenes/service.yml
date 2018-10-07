@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: wlp-service
+spec:
+  type: NodePort
+  selector:
+    app: wlp
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 9080
