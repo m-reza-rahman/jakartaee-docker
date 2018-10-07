@@ -42,32 +42,6 @@
 		<user>admin</user>
 	</administrator-role>
 
-        <!-- clientAuthenticationSupported set to enable bidirectional trust -->
-        <ssl id="defaultSSLConfig"
-             keyStoreRef="defaultKeyStore"
-             trustStoreRef="defaultTrustStore"
-             clientAuthenticationSupported="true" />
-
-        <!-- inbound (HTTPS) keystore -->
-        <keyStore id="defaultKeyStore" password="{xor}PjsyNjFubWw="
-                  location="${server.config.dir}/resources/security/key.jks" />
-
-        <!-- inbound (HTTPS) truststore -->
-        <keyStore id="defaultTrustStore" password="{xor}PjsyNjFubWw="
-                  location="${server.config.dir}/resources/security/trust.jks" />
-
-        <!-- server identity keystore -->
-        <keyStore id="serverIdentity" password="{xor}PjsyNjFubWw="
-                  location="${server.config.dir}/resources/collective/serverIdentity.jks" />
-
-        <!-- collective trust keystore -->
-        <keyStore id="collectiveTrust" password="{xor}PjsyNjFubWw="
-                  location="${server.config.dir}/resources/collective/collectiveTrust.jks" />
-
-        <!-- collective root signers keystore -->
-        <keyStore id="collectiveRootKeys" password="{xor}PjsyNjFubWw="
-                  location="${server.config.dir}/resources/collective/rootKeys.jks" />
-
 	<!-- To access this server from a remote client add a host attribute to
 		the following element, e.g. host="*" -->
 	<httpEndpoint host="*" httpPort="9080" httpsPort="9443" protocolVersion = "http/1.1"
