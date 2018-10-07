@@ -15,6 +15,7 @@ cd kubernetes-clustering/controller
 docker build -t controller .
 docker run -it --rm -p 9080:9080 -p 9443:9443 controller
 ``
+
 Run Member:
 ``
 copy javaee/javaee-cafe/target/javaee-cafe.war kubernetes-clustering
