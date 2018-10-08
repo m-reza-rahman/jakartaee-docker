@@ -31,7 +31,7 @@ public class Cafe implements Serializable {
 	private static final Logger logger = Logger.getLogger(MethodHandles.lookup().lookupClass().getName());
 
 	private String baseUri;
-	private Client client;
+	private transient Client client;
 
 	@NotNull
 	@NotEmpty
