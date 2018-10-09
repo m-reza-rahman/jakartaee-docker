@@ -47,6 +47,12 @@ This demo will show how to make application server administration, clustering, a
    ```
    > **Note:** It may take a few minutes for the load balancer to be created.
 
+  Or use next Command to find the assigned IP address and port If you are running your service on `Minikube`:
+
+ 	```
+ 	minikube service javaee-cafe --url
+ 	```
+
 * Scale your application:
    ```
    kubectl scale deployment javaee-cafe --replicas=3
