@@ -5,7 +5,7 @@ This demo will show how to make application server administration, clustering, a
 ## Prerequisites
 
 - You need to have a Kubernetes cluster with kubectl installed and configured to use your cluster. We used the IBM Cloud but you can use any Kubernetes capable platform such as Google Cloud. You can even run Kubernetes locally.
-- You need to have docker cli installed and you must be signed into your Docker Hub account. To create a Docker Hub account go to [https://hub.docker.com](https://hub.docker.com)
+- You need to have docker cli installed and you must be signed into your Docker Hub account. To create a Docker Hub account go to [https://hub.docker.com](https://hub.docker.com).
 
 ## Deploy the Java EE Application and Postgres on Kubernetes
 * Open a terminal. Navigate to where you have this repository code in your file system. Navigate to the kubernetes-clustering/ directory.
