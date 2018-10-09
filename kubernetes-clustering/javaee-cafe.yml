@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: javaee-cafe
+  namespace: default
+spec:
+  replicas: 2
+  template:
+    metadata:
+      name: javaee-cafe
+      labels:
+        app: javaee-cafe
+    spec:
+      containers:
+      - name: javaee-cafe
+        env:
+          - name: POSTGRES_USER
+            valueFrom:
+              configMapKeyRef:
+                name: postgres-config
+                key: postgres_user
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              configMapKeyRef:
+                name: postgres-config
+                key: postgres_password
+          - name: POSTGRES_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: hostname-config
+                key: postgres_host
+        image: rezarahman/javaee-cafe:v1
