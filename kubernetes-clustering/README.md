@@ -41,7 +41,7 @@ This demo will show how to make application server administration, clustering, a
    kubectl expose deployment javaee-cafe --type=LoadBalancer --port=9080
    ```
 
-* Get the External IP address of the Service, then the application will be accessible at `http://<External IP Address>:9080/javaee-cafe`
+* Get the External IP address of the Service, then the application will be accessible at `http://<External IP Address>:9080/javaee-cafe`:
    ```
    kubectl get svc javaee-cafe
    ```
