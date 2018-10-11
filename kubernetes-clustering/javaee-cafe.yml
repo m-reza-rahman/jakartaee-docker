@@ -30,3 +30,14 @@ spec:
                 name: hostname-config
                 key: postgres_host
         image: rezarahman/javaee-cafe:v1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: javaee-cafe
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 9080
+  selector:
+    app: javaee-cafe
