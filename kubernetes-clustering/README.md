@@ -59,11 +59,6 @@ This demo will show how to make application server administration, clustering, a
    kubectl delete -f javaee-cafe.yml
    ```
 
-* Delete the service for the application:
-   ```
-   kubectl delete svc javaee-cafe
-   ```
-
 * Delete the hostname config map:
    ```
    kubectl delete cm hostname-config
