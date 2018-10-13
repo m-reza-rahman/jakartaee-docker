@@ -1,4 +1,4 @@
-# Using Uber Jar
+# Using Uber Jars
 This demo will show an alternative way of deploying Java EE applications on Docker. Application server is packaged inside the Jar that will run inside Docker. The application will be run without any external dependencies.
 
 ## Start the Database with Docker
