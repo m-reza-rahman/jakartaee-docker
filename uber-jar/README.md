@@ -17,7 +17,7 @@ The next step is to get the application up and running. Follow the steps below t
 
 * Open Eclipse.
 * Get the uber jar version of the javaee-cafe application into the IDE. In order to do that, go to File -> Import -> Maven -> Existing Maven Projects. Then browse to where you have this repository code in your file system and select uber-jar/javaee-cafe. Accept the rest of the defaults and finish.
-* Once the application loads, you need to do a full Maven build by going to: right click the application -> Run As -> Maven build...
+* Once the application loads, you need to do a full Maven build by going to: right click the application -> Run As -> [Maven build...].
 * In the Goals field of the build dialog, enter:
 
 	```
