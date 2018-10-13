@@ -17,13 +17,7 @@ The next step is to get the application up and running. Follow the steps below t
 
 * Open Eclipse.
 * Get the uber jar version of the javaee-cafe application into the IDE. In order to do that, go to File -> Import -> Maven -> Existing Maven Projects. Then browse to where you have this repository code in your file system and select uber-jar/javaee-cafe. Accept the rest of the defaults and finish.
-* Once the application loads, you need to do a full Maven build by going to: right click the application -> Run As -> [Maven build...].
-* In the Goals field of the build dialog, enter:
-
-	```
-	clean install net.wasdev.wlp.maven.plugins:liberty-maven-plugin:package-server
-	```
-* Hit Run and wait for the build to finish completely.	
+* Once the application loads, you should do a full Maven build by going to Right click the application -> Run As -> Maven install.
 * Browse to where you have this repository code in your file system. Go to the uber-jar/javaee-cafe directory.
 * You should explore the Dockerfile in this directory used to build the Docker image. It starts from the `openjdk:8-jre-alpine` image, adds the `javaee-cafe.jar` from the current directory into the Docker image and runs the jar. 
 * Open a console. Build a Docker image tagged `javaee-cafe` navigating to the uber-jar/javaee-cafe directory as context and issuing the command:
