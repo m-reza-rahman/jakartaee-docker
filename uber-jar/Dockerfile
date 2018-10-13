@@ -1,11 +1,9 @@
-FROM java:8-jre
+FROM openjdk:8-jre-alpine
 
 WORKDIR /
 
+ADD javaee-cafe.jar javaee-cafe.jar
 
-ADD embedded-wlp-liberty.jar /source/embedded-wlp-liberty.jar
+EXPOSE 9080
 
-EXPOSE 8080
-
-CMD java - jar /source/embedded-wlp-liberty.jar
-
+CMD java - jar javaee-cafe.jar

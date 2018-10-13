@@ -20,49 +20,16 @@
 		<maven.deploy.skip>true</maven.deploy.skip>
 	</properties>
 	<dependencies>
-		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
-
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
 			<version>${javaee.api.version}</version>
 			<scope>provided</scope>
 		</dependency>
-
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>3.1.0</version>
-			<scope>provided</scope>
-		</dependency>
-
 	</dependencies>
 	<build>
 		<finalName>${project.artifactId}</finalName>
 		<plugins>
-			<plugin>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>3.1.0</version>
-				<executions>
-					<execution>
-						<id>copy-resources</id>
-						<!-- here the phase you need -->
-						<phase>validate</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${basedir}/wlp/usr/servers/myServer/</outputDirectory>
-							<resources>
-								<resource>
-									<directory>src/main/liberty/config/</directory>
-									<filtering>true</filtering>
-								</resource>
-							</resources>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -73,25 +40,15 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-			<!-- <plugin> <artifactId>maven-war-plugin</artifactId> <version>${maven.war.plugin.version}</version> 
-				<configuration> <failOnMissingWebXml>false</failOnMissingWebXml> </configuration> 
-				</plugin> -->
-
 			<plugin>
 				<groupId>net.wasdev.wlp.maven.plugins</groupId>
 				<artifactId>liberty-maven-plugin</artifactId>
-
+				<version>2.6.1</version>
 				<configuration>
-
-
-					<packageFile>target/embedded-wlp-liberty.jar</packageFile>
+					<packageFile>javaee-cafe.jar</packageFile>
 					<include>runnable</include>
-					<looseApplication>true</looseApplication>
 					<installAppPackages>all</installAppPackages>
-					<serverName>myServer</serverName>
 				</configuration>
-
-
 				<executions>
 					<execution>
 						<phase>package</phase>
@@ -100,13 +57,9 @@
 							<goal>create-server</goal>
 							<goal>install-feature</goal>
 							<goal>install-apps</goal>
-
-							<!-- goal>package-server</goal -->
 						</goals>
-
 						<configuration>
-							<configFile>${basedir}/src/main/liberty/config/_server.xml</configFile>
-
+							<configFile>${basedir}/src/main/liberty/config/server.xml</configFile>
 						</configuration>
 					</execution>
 				</executions>
@@ -132,18 +85,13 @@
 							<version>42.2.4</version>
 							<type>jar</type>
 							<overWrite>true</overWrite>
-							<outputDirectory>${project.build.directory}/liberty/wlp/usr/servers/myServer/resources/</outputDirectory>
-							<destFileName>postgress.jar</destFileName>
+							<outputDirectory>${project.build.directory}/liberty/wlp/usr/shared/resources/</outputDirectory>
 						</artifactItem>
 					</artifactItems>
 					<overWriteReleases>false</overWriteReleases>
 					<overWriteSnapshots>true</overWriteSnapshots>
 				</configuration>
 			</plugin>
-
-
-
-
 		</plugins>
 	</build>
 </project>

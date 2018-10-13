@@ -30,3 +30,11 @@ hs_err_pid*
 .DS_Store
 .war
 javaee/javaee-cafe-demo/nb-configuration.xml
+uber-jar/javaee-cafe/.classpath
+uber-jar/javaee-cafe/.settings/org.eclipse.core.resources.prefs
+uber-jar/javaee-cafe/.settings/org.eclipse.jdt.core.prefs
+uber-jar/javaee-cafe/.settings/org.eclipse.jpt.core.prefs
+uber-jar/javaee-cafe/.settings/org.eclipse.wst.common.component
+uber-jar/javaee-cafe/.settings/org.eclipse.wst.common.project.facet.core.prefs.xml
+uber-jar/javaee-cafe/.settings/org.eclipse.wst.common.project.facet.core.xml
+uber-jar/javaee-cafe/.settings/org.eclipse.wst.validation.prefs
