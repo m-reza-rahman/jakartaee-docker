@@ -57,7 +57,8 @@
 				</configuration>
 				<executions>
 					<execution>
-						<phase>package</phase>
+					    <id>install-server</id>
+						<phase>pre-integration-test</phase>
 						<goals>
 							<goal>create-server</goal>
 							<goal>install-apps</goal>
@@ -66,6 +67,13 @@
 							<configFile>${basedir}/src/main/liberty/config/server.xml</configFile>
 						</configuration>
 					</execution>
+					<execution>
+					    <id>package-server</id>
+						<phase>post-integration-test</phase>
+						<goals>
+							<goal>package-server</goal>
+						</goals>
+					</execution>					
 				</executions>
 			</plugin>
 			<plugin>
@@ -75,7 +83,7 @@
 				<executions>
 					<execution>
 						<id>copy</id>
-						<phase>package</phase>
+						<phase>pre-integration-test</phase>
 						<goals>
 							<goal>copy</goal>
 						</goals>
