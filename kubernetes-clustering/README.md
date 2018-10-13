@@ -31,7 +31,7 @@ This demo will show how to make application server administration, clustering, a
    docker build -t <your Docker Hub account>/javaee-cafe:v1 .
    docker push <your Docker Hub account>/javaee-cafe:v1
    ```
-* Replace the `rezarahman` value with your account name in `javaee-cafe.yml` file, then deploy the application:
+* Replace the `<your Docker Hub account>` value with your account name in `javaee-cafe.yml` file, then deploy the application:
    ```
    kubectl create -f javaee-cafe.yml
    ```
