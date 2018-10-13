@@ -1,190 +1,166 @@
 # Jenkins with Java EE, Docker and Kubernetes
 
-This demo will show how Jenkins works with Java EE, Docker and Kubernetes.
+This demo will show how Jenkins works with Java EE, Docker and Kubernetes. 
 
+## Prerequisites
 
-**Creating a service for an application running in two pods**
+- We used the Google Cloud. 
+- Compute Engine, Container Engine, and Container Builder APIs, go to this link to enable [https://console.cloud.google.com/flows/enableapi?apiid=compute_component,container,cloudbuild.googleapis.com](https://console.cloud.google.com/flows/enableapi?apiid=compute_component,container,cloudbuild.googleapis.com)
 
-* Enter the following command to create the WebSphere Cluster and wait for the process to come up fully. 
-The process create two resources (pod) 
+**Open Google Cloud Shell**
 
+* Log in on Google Cloud and go to your project.
+
+* Open Google Cloud Shell.
+
+* Set a default compute zone:
 	```
-	kubectl create -f deployment.yml
+	$ gcloud config set compute/zone us-east1-d
 	```
-
-* Command to see the resources (pods).
-	
+* Clone the repository:
 	```
-	kubectl get po
-	```
-	
-	<pre>
-	NAME                     READY   STATUS    RESTARTS   AGE
-	wlp-58464fb498-q5sbn     1/1     Running   0          10s
-	wlp-58464fb498-qvzlh     1/1     Running   0          10s
-	</pre>
-
-*  Command to describe the first resource in WLP cluster
-
-	```
-	kubectl describe po wlp-58464fb498-q5sbn
+	$ git clone https://github.com/m-reza-rahman/javaee-docker.git
 	```
 
-	<pre>
-	Labels:         app=wlp
-					pod-template-hash=1402096054
-	Annotations:    <none>
-	Status:         Running
-	IP:             172.17.0.5
-	</pre>
 
-*  Command to test the first resource in WLP cluster
+**Create a Kubernetes Cluster**
 
+* Open Google Cloud Shell.
+
+* Use Google Container Engine to create and manage a Kubernetes cluster. Provision the cluster with gcloud:
 	```
-	curl 172.17.0.5:9080
-	```	
-	
-*  Command to describe the second resource in WLP cluster
-	```
-	kubectl describe po wlp-58464fb498-qvzlh
+	gcloud container clusters create jenkins-cd \
+	--num-nodes 2 \
+	--machine-type n1-standard-2 \
+	--scopes "https://www.googleapis.com/auth/projecthosting,cloud-platform"
 	```
 	
-	<pre>
-	Labels:         app=wlp
-					pod-template-hash=1402096054
-	Annotations:    <none>
-	Status:         Running
-	IP:             172.17.0.7
-	</pre>
+	Wait for a time the operation is complete
+
+* Download the credentials for the cluster using the gcloud CLI:
+	```
+	$ gcloud container clusters get-credentials jenkins-cd
+	Fetching cluster endpoint and auth data.
+	kubeconfig entry generated for jenkins-cd.
+	```
+* Confirm that the cluster is running and kubectl is working by listing pods:
+	```
+	$ kubectl get pods
+	No resources found.
+	```
+
+
+**Install Helm**
+
+We used Helm to install Jenkins from the Charts repository. Helm is a package manager that makes it easy to configure and deploy Kubernetes applications. 
+
+Once you have Jenkins installed, you'll be able to set up your CI/CD pipleline.
+
+* Download and install the helm binary
+	```
+	wget https://storage.googleapis.com/kubernetes-helm/helm-v2.9.1-linux-amd64.tar.gz
+	```
+
+* Unzip the helm binary:
+	```
+	tar zxfv helm-v2.9.1-linux-amd64.tar.gz
+	cp linux-amd64/helm .
+	```
+
+* Add the logged users a cluster administrator in the cluster's RBAC so it can give Jenkins permissions in the cluster:
+
+	```
+	kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin --user=$(gcloud config get-value account)
+	```
+	
+* Grant Tiller, the server side of Helm, the cluster-admin role in the cluster:
+
+	```
+	kubectl create serviceaccount tiller --namespace kube-system
+	kubectl create clusterrolebinding tiller-admin-binding --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
+	```
+	
+* Initialize Helm. This ensures that the server side of Helm (Tiller) is properly installed in the cluster.
+
+	```
+	./helm init --service-account=tiller
+	./helm update
+	```
+	
+* Ensure Helm is properly installed by running the following command. The versions appear for both the server and the client of v2.9.1:
+	```
+	./helm version
+	Client: &version.Version{SemVer:"v2.9.1", GitCommit:"20adb27c7c5868466912eebdf6664e7390ebe710", GitTreeState:"clean"}
+    Server: &version.Version{SemVer:"v2.9.1", GitCommit:"20adb27c7c5868466912eebdf6664e7390ebe710", GitTreeState:"clean"}
+    ```
+
+## Configure and Install Jenkins
+
+* Open Google Cloud Shell.
+
+* Check the repository and helm path with an ls command
+	```
+	ls
+	```
 		
-*  Command to test the first resource in WLP cluster
-
-	```
-	curl 172.17.0.7:9080
-	```	
+> **Note:** Next steps assumed both the repository and and help are in the same directory.
 	
+* Use the Helm CLI to deploy the chart with your configuration set.
 
-*  Command to Display information about the Deployment
+    ```shell
+    ./helm install -n cd stable/jenkins -f javaee-docker/jenkins-kubertenes/values.yaml --version 0.16.6 --wait
+    ```
+	> **Note:** It may take a few minutes for the chart to be deployed.
 
-	```
-	kubectl get deployments wlp
-	kubectl describe deployments wlp
-	```
-**OPCION 1 TO EXPOSE THE CLUSTER**
+* Ensure the Jenkins pod goes to the `Running` state and the container is in the `READY` state:
 
-* Create a Service object that exposes the deployment:
+    ```shell
+    $ kubectl get pods
+    NAME                          READY     STATUS     RESTARTS   AGE
+    cd-jenkins-657d48bd5b-fbrpk   0/1       Init:0/1   0          23s
+    ```
 
-	```
-	kubectl expose deployment wlp --type=NodePort --name=wlp-service
-	```
-	 
-* Display information about the Service:
+* Setup a port forwarding to the Jenkins UI from the Cloud Shell
 
-	```
-	kubectl describe services wlp-service
-	```
-	<pre>	 
-	Name:                     wlp-service
-	 Namespace:                default
-	 Labels:                   app=wlp
-	 Annotations:              <none>
-	 Selector:                 app=wlp
-	 Type:                     NodePort
-	 IP:                       10.107.188.45
-	 Port:                     port-1  9080/TCP
-	 TargetPort:               9080/TCP
-	 NodePort:                 port-1  30307/TCP
-	 Endpoints:                172.17.0.5:9080,172.17.0.7:9080
-	 Port:                     port-2  9443/TCP
-	 TargetPort:               9443/TCP
-	 NodePort:                 port-2  31089/TCP
-	 Endpoints:                172.17.0.5:9443,172.17.0.7:9443
-	 Session Affinity:         None
-	 External Traffic Policy:  Cluster
-	 Events:                   <none>
-	</pre>
-	
-	Make a note of the NodePort value for the service. For example, in the preceding output, the NodePort value is 31496.
- 
-*  Command to test the NodePort
- 
- 	```
- 	curl 10.107.188.45:9080
- 	```	
+    ```shell
+    export POD_NAME=$(kubectl get pods -l "component=cd-jenkins-master" -o jsonpath="{.items[0].metadata.name}")
+    kubectl port-forward $POD_NAME 8080:8080 >> /dev/null &
+    ```
 
-*  Command to find the assigned IP address and port If you are running your service on `Minikube`:
+* Check that the Jenkins Service was created properly:
 
- 	```
- 	minikube service wlp-service --url
- 	```
+    ```shell
+    $ kubectl get svc
+    NAME               CLUSTER-IP     EXTERNAL-IP   PORT(S)     AGE
+    cd-jenkins         10.35.249.67   <none>        8080/TCP    3h
+    cd-jenkins-agent   10.35.248.1    <none>        50000/TCP   3h
+    kubernetes         10.35.240.1    <none>        443/TCP     9h
+    ```
 
-	<pre> 	
-	172-0-14-31:kubernetes hacm$ 
-	http://192.168.99.100:31000
-	http://192.168.99.100:30329
-	</pre>
+We have used the [Kubernetes Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Kubernetes+Plugin) so that our builder nodes will be automatically launched as necessary when the Jenkins master requests them.
+Upon completion of their work they will automatically be turned down and their resources added back to the clusters resource pool.
 
- 	
-* Command to see service
- 
- 	```
- 	kubectl get services
- 	```
- 	
-**OPCION 2 TO EXPOSE THE CLUSTER WITH A .yml file**
+Notice that this service exposes ports `8080` and `50000` for any pods that match the `selector`. This will expose the Jenkins web UI and builder/agent registration ports within the Kubernetes cluster.
+Additionally the `jenkins-ui` services is exposed using a ClusterIP so that it is not accessible from outside the cluster.
+
+## Connect to Jenkins
+
+* Retrieve the Jenkins admin password:
+
+    ```shell
+    printf $(kubectl get secret cd-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
+    ```
+
+* Open the Jenkins user interface by click on the Web Preview button in cloud shell, then click “Preview on port 8080”:
+
+	Log in with username `admin` and your auto generated password.
 
 
- 	
-* Command to create a service from a .yml file
- 
- 	```
- 	kubectl create -f service.yml
- 	```
- 	
-* Display information about the Service:
 
-	```
-	kubectl describe services wlp-service
-	```
-	
-	<pre>
-    Name:                     wlp-service
-    Namespace:                default
-    Labels:                   <none>
-    Annotations:              <none>
-    Selector:                 app=wlp
-    Type:                     NodePort
-    IP:                       10.104.230.20
-    Port:                     <unset>  80/TCP
-    TargetPort:               9080/TCP
-    NodePort:                 <unset>  30807/TCP
-    Endpoints:                172.17.0.5:9080,172.17.0.7:9080
-    Session Affinity:         None
-    External Traffic Policy:  Cluster
-    Events:                   <none>
-    </pre> 
-    
-*  Command to find the assigned IP address and port If you are running your service on `Minikube`:
 
- 	```
- 	minikube service wlp-service --url
- 	```
- 	WebSphere can be acceded from the URL likes next
- 	
- 	``` 
- 	http://192.168.99.100:30807	
-  	```
+#NOTE: NEXT STEPS ARE FOR DEPLOY OUR JAVAEE-APP, I AM WORKING ON IT  :)
 
-**Cleaning up**
 
-* Command to delete the service 
-  
- 	```
- 	kubectl delete services wlp-service
- 	```
+## Clean up
 
-* Command to delete the WLP cluster
- 
- 	```
- 	kubectl delete deployment/wlp
- 	```
+To clean up, navigate to the [Google Developers Console Project List](https://console.developers.google.com/project), choose the project you created and delete it.
