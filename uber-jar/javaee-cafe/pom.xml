@@ -60,7 +60,6 @@
 						<phase>package</phase>
 						<goals>
 							<goal>create-server</goal>
-							<goal>install-feature</goal>
 							<goal>install-apps</goal>
 						</goals>
 						<configuration>
