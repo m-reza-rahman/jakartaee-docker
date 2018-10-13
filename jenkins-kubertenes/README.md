@@ -98,7 +98,7 @@ Once you have Jenkins installed, you'll be able to set up your CI/CD pipleline.
 
 * Open Google Cloud Shell.
 
-* Check the repository and helm path with an ls command
+* Check the repository and helm path with `ls` command
 	```
 	ls
 	```
@@ -167,7 +167,7 @@ Additionally the `jenkins-ui` services is exposed using a ClusterIP so that it i
    kubectl create configmap hostname-config --from-literal=postgres_host=$(kubectl get svc postgres -o jsonpath="{.spec.clusterIP}")
    ```
 
-> **Note:** We used the Docker image builded and push to Docker Hub on kubernetes-clustering session.
+> **Note:** We used the Docker image built and pushed to Docker Hub on kubernetes-clustering session.
    
 
 * Replace the `<your Docker Hub account>` value with your account name in `javaee-cafe.yml` file, then deploy the application:
@@ -191,7 +191,57 @@ Additionally the `jenkins-ui` services is exposed using a ClusterIP so that it i
    ```
    kubectl scale deployment javaee-cafe --replicas=3
    ```   
+
+
+
+### Create a repository for the javaee-cafe app source
+
+* Create and initialize a git repository from javaee-cafe code
+
+   **Be sure to replace `<your Project ID>` with the name of your Google Cloud Platform project**
+
+    ```shell
+    $ cp -r ~/javaee-docker/javaee/javaee-cafe/ / ~
+    $ cd ~/javaee-cafe
+    $ git init
+    $ git config credential.helper gcloud.sh
+    $ gcloud source repos create gceme
+    $ git remote add origin https://source.developers.google.com/p/<your Project ID>/r/gceme
+    ```
+> **Note:** The service sourcerepo.googleapis.com could be enabled
    
+   
+
+* Ensure git is able to identify you:
+
+    ```shell
+    $ git config --global user.email "YOUR-EMAIL-ADDRESS"
+    $ git config --global user.name "YOUR-NAME"
+    ```
+
+* Add, commit, and push all the files:
+
+    ```shell
+    $ git add .
+    $ git commit -m "JavaEE-Cafe Initial commit"
+    $ git push origin master
+    ```   
+
+
+
+## Create a pipeline
+You'll now use Jenkins to define and run a pipeline that will test, build, and deploy your copy of `gceme` to your Kubernetes cluster. You'll approach this in phases. Let's get started with the first.
+
+* Go to the option `Jenkins>Credentials` and add a new credentials to the store Jenkins of the kind `Google Service Account from metadata` 
+* Go to the option `Jenkins>New Item` and create a new item with the name javaee-cafe and the type  **Multibranch Pipeline** 
+* Add a new Git Branch Source with the repository  `https://github.com/m-reza-rahman/javaee-docker.git` and the credential created.
+* Set the 'Interval' value to 1 minute in the 'Scan Multibranch Pipeline Triggers' section
+* Click `Save`, leaving all other options with their defaults
+
+
+A job entitled "Branch indexing" was kicked off to see identify the branches in your repository. If you refresh Jenkins you should see the `master` branch now has a job created for it.
+
+The first run of the job will fail until the project name is set properly in the next step.
 
 
 
