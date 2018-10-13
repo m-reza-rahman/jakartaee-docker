@@ -59,7 +59,6 @@
 					<execution>
 						<phase>package</phase>
 						<goals>
-							<goal>install-server</goal>
 							<goal>create-server</goal>
 							<goal>install-feature</goal>
 							<goal>install-apps</goal>
