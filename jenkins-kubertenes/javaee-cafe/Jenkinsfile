@@ -1,12 +1,21 @@
 pipeline {
 	agent any
 
+	   def mvnHome
+       stage('Preparation') { // for display purposes
+          // Get the Maven tool.
+          // ** NOTE: This 'maven_3_5_4' Maven tool must be configured
+          // **       in the global configuration.
+          mvnHome = tool 'maven_3_5_4'
+       }
+
+
 	stages {
 		stage ('Build') {
 
 			steps {
 
-					sh 'mvn clean compile'
+					sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
 
 			}
 		}
@@ -14,9 +23,12 @@ pipeline {
 		stage ('Deploy') {
 
 			steps {
-					sh 'mvn deploy'
+					sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean deploy"
 
 			}
 		}
 	}
+
+
+
 }
