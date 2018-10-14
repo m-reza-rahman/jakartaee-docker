@@ -19,6 +19,86 @@
 		<version>0.1-SNAPSHOT</version>
 	</parent>
 
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.plugin.version}</version>
+				<inherited>true</inherited>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>net.wasdev.wlp.maven.plugins</groupId>
+				<artifactId>liberty-maven-plugin</artifactId>
+				<version>2.6.1</version>
+				<configuration>
+					<assemblyArtifact>
+						<groupId>com.ibm.websphere.appserver.runtime</groupId>
+						<artifactId>wlp-javaee8</artifactId>
+						<version>18.0.0.3</version>
+						<type>zip</type>
+					</assemblyArtifact>
+					<packageFile>javaee-cafe.jar</packageFile>
+					<include>runnable</include>
+					<installAppPackages>all</installAppPackages>
+				</configuration>
+				<executions>
+					<execution>
+						<id>install-server</id>
+						<phase>pre-integration-test</phase>
+						<goals>
+							<goal>create-server</goal>
+							<goal>install-apps</goal>
+						</goals>
+						<configuration>
+							<configFile>${basedir}/src/main/liberty/config/server.xml</configFile>
+						</configuration>
+					</execution>
+					<execution>
+						<id>package-server</id>
+						<phase>post-integration-test</phase>
+						<goals>
+							<goal>package-server</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.1.1</version>
+				<executions>
+					<execution>
+						<id>copy</id>
+						<phase>pre-integration-test</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<artifactItems>
+						<artifactItem>
+							<groupId>org.postgresql</groupId>
+							<artifactId>postgresql</artifactId>
+							<version>42.2.4</version>
+							<type>jar</type>
+							<overWrite>true</overWrite>
+							<outputDirectory>${project.build.directory}/liberty/wlp/usr/shared/resources/</outputDirectory>
+						</artifactItem>
+					</artifactItems>
+					<overWriteReleases>false</overWriteReleases>
+					<overWriteSnapshots>true</overWriteSnapshots>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 
 
 </project>
