@@ -12,14 +12,14 @@ pipeline {
 
 		stage ('Build') {
 			steps {
-					sh 'mvn clean package -f /jenkins-kubernetes/javaee-cafe/pom.xml'
+					sh 'mvn clean package'
 			}
 		}
 
 		stage ('Deploy') {
 
 			steps {
-					sh 'mvn deploy  -f /jenkins-kubernetes/javaee-cafe/pom.xml'
+					sh 'mvn deploy'
 			}
 		}
 	}
