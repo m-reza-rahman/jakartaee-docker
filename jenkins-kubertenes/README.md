@@ -199,8 +199,10 @@ We used Jenkins to define and run a pipeline deploy `javaee-cafe` into the Kuber
 the github repo `https://github.com/m-reza-rahman/javaee-docker.git` master branch.
 
 * Go to the option `Jenkins > Global Tool Configuration` and add a Maven Installation
+* Go to the option `Jenkins > Manage Jenkins > Manage Node` and to the master node 10 executors
 * Go to the option `Jenkins > New Item` and create a new item with the name javaee-cafe and the type  **Pipeline** , 
-Pipeline Definition: Pipeline script from SCM, SCM git Repository URL https://github.com/m-reza-rahman/javaee-docker.git, credentials are not needed
+Pipeline Definition: Pipeline script from SCM, SCM git Repository URL https://github.com/m-reza-rahman/javaee-docker.git, 
+,Script Path: jenkins-kubertenes/javaee-cafe/Jenkinsfile, credentials are not needed
 * Click `Save`, leaving all other options with their defaults
 * Test de Pipeline by click on Build Now option
 
