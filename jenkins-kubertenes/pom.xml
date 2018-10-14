@@ -3,22 +3,27 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	<artifactId>jenkins-kubernetes</artifactId>
 	<groupId>javaee-cafe</groupId>
-	<artifactId>javaee-cafe</artifactId>
-
-
+	<version>0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>${project.artifactId}</name>
+
+	<name>jenkins-kubernetes</name>
 	<description>This is the basic Java EE application used throughout the Docker and Kubertenes demos.
         It is a simple CRUD application. It uses Maven and Java EE 8 (JAX-RS, EJB, CDI, JPA, JSON-B, JSF, Bean Validation).
     </description>
 
 	<parent>
 		<groupId>javaee-cafe</groupId>
-		<artifactId>jenkins-kubernetes</artifactId>
+		<artifactId>javaee-cafe-parent</artifactId>
 		<version>0.1-SNAPSHOT</version>
 	</parent>
 
+
+
+	<modules>
+	<module>javaee-cafe</module>
+	</modules>
 
 
 </project>
