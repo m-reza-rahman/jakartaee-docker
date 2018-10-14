@@ -11,7 +11,7 @@ tools {
 
 			steps {
 				//withMaven(maven : 'maven_3_5_4'){
-					sh 'mvn clean package'
+					sh 'mvn clean package -f /jenkins-kubernetes/javaee-cafe/pom.xml'
 				//}
 			}
 		}
@@ -20,7 +20,7 @@ tools {
 
 			steps {
 				//withMaven(maven : 'maven_3_5_4') {
-					sh 'mvn deploy'
+					sh 'mvn deploy  -f /jenkins-kubernetes/javaee-cafe/pom.xml'
 				//}
 			}
 		}
