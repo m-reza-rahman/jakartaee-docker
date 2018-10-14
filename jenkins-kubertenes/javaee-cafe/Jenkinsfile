@@ -1,18 +1,17 @@
 pipeline {
-	//agent {
-	//	docker {
-	//		image 'maven:3-alpine'
-	//		args '-v /root/.m2:/root/.m2'
-	//	}
-	//}
-	def mvnHome = tool 'maven_3_5_4'
+	agent {
+		docker {
+			image 'maven:3-alpine'
+			args '-v /root/.m2:/root/.m2'
+		}
+	}
 
 	stages {
 		stage ('Build') {
 
 			steps {
 				//withMaven(maven : 'maven_3_5_4'){
-					sh '${mvnHome}/bin/mvn -Dmaven.test.failure.ignore clean package'
+					sh 'mvn clean package'
 				//}
 			}
 		}
@@ -21,7 +20,7 @@ pipeline {
 
 			steps {
 				//withMaven(maven : 'maven_3_5_4') {
-					sh '${mvnHome}/bin/mvn -Dmaven.test.failure.ignore  deploy'
+					sh 'mvn deploy'
 				//}
 			}
 		}
