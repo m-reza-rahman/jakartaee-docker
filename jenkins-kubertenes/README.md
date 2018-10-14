@@ -193,6 +193,27 @@ Additionally the `jenkins-ui` services is exposed using a ClusterIP so that it i
    ```   
 
 
+## Create a  pipeline
+
+We used Jenkins to define and run a pipeline deploy `javaee-cafe` into the Kubernetes cluster. This Pipeline takes the application source code from
+the github repo `https://github.com/m-reza-rahman/javaee-docker.git` master branch.
+
+* Go to the option `Jenkins > Global Tool Configuration` and add a Maven Installation
+* Go to the option `Jenkins > New Item` and create a new item with the name javaee-cafe and the type  **Pipeline** , 
+Pipeline Definition: Pipeline script from SCM, SCM git Repository URL https://github.com/m-reza-rahman/javaee-docker.git, credentials are not needed
+* Click `Save`, leaving all other options with their defaults
+* Test de Pipeline by click on Build Now option
+
+
+
+## Clean up
+
+To clean up, navigate to the [Google Developers Console Project List](https://console.developers.google.com/project), choose the project you created and delete it.
+
+
+
+
+
 
 ### Create a repository for the javaee-cafe app source
 
@@ -227,16 +248,16 @@ Additionally the `jenkins-ui` services is exposed using a ClusterIP so that it i
     $ git push origin master
     ```   
 
-
-
-## Create a pipeline
+## Create a Multibranch pipeline
 You'll now use Jenkins to define and run a pipeline that will test, build, and deploy your copy of `gceme` to your Kubernetes cluster. You'll approach this in phases. Let's get started with the first.
 
-* Go to the option `Jenkins>Credentials` and add a new credentials to the store Jenkins of the kind `Google Service Account from metadata` 
-* Go to the option `Jenkins>New Item` and create a new item with the name javaee-cafe and the type  **Multibranch Pipeline** 
+* Go to the option `Jenkins > Credentials` and add a new credentials to the store Jenkins of the kind `Google Service Account from metadata` 
+* Go to the option `Jenkins > New Item` and create a new item with the name javaee-cafe and the type  **Multibranch Pipeline** 
 * Add a new Git Branch Source with the repository  `https://github.com/m-reza-rahman/javaee-docker.git` and the credential created.
 * Set the 'Interval' value to 1 minute in the 'Scan Multibranch Pipeline Triggers' section
 * Click `Save`, leaving all other options with their defaults
+
+* Go to the option `Jenkins > Global Tool Configuration` and add a Maven Installation
 
 
 A job entitled "Branch indexing" was kicked off to see identify the branches in your repository. If you refresh Jenkins you should see the `master` branch now has a job created for it.
@@ -244,7 +265,3 @@ A job entitled "Branch indexing" was kicked off to see identify the branches in 
 The first run of the job will fail until the project name is set properly in the next step.
 
 
-
-## Clean up
-
-To clean up, navigate to the [Google Developers Console Project List](https://console.developers.google.com/project), choose the project you created and delete it.
