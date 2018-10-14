@@ -5,18 +5,18 @@ pipeline {
 		stage ('Build') {
 
 			steps {
-				//withMaven(maven : 'maven_3_5_4'){
+				withMaven(maven : 'maven_3_5_4'){
 					sh 'mvn clean package'
-				//}
+				}
 			}
 		}
 
 		stage ('Deploy') {
 
 			steps {
-				//withMaven(maven : 'maven_3_5_4') {
+				withMaven(maven : 'maven_3_5_4') {
 					sh 'mvn deploy'
-				//}
+				}
 			}
 		}
 	}
