@@ -1,27 +1,25 @@
 pipeline {
 	agent any
 
-tools {
-	maven 'maven_3_5_4'
-}
-
+	tools {
+		// Get the Maven tool.
+		// ** NOTE: This 'maven_3_5_4' Maven tool must be configured
+		// **       in the global configuration.
+		maven 'maven_3_5_4'
+	}
 
 	stages {
-		stage ('Build') {
 
+		stage ('Build') {
 			steps {
-				//withMaven(maven : 'maven_3_5_4'){
 					sh 'mvn clean package -f /jenkins-kubernetes/javaee-cafe/pom.xml'
-				//}
 			}
 		}
 
 		stage ('Deploy') {
 
 			steps {
-				//withMaven(maven : 'maven_3_5_4') {
 					sh 'mvn deploy  -f /jenkins-kubernetes/javaee-cafe/pom.xml'
-				//}
 			}
 		}
 	}
