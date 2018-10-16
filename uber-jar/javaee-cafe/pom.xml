@@ -14,10 +14,6 @@
 	<properties>
 		<javaee.api.version>8.0</javaee.api.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.plugin.version>3.1</maven.compiler.plugin.version>
-		<maven.war.plugin.version>2.3</maven.war.plugin.version>
-		<maven.license.plugin.version>1.10.b1</maven.license.plugin.version>
-		<maven.deploy.skip>true</maven.deploy.skip>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -33,7 +29,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${maven.compiler.plugin.version}</version>
+				<version>3.8.0</version>
 				<inherited>true</inherited>
 				<configuration>
 					<source>1.8</source>
@@ -57,7 +53,7 @@
 				</configuration>
 				<executions>
 					<execution>
-					    <id>install-server</id>
+						<id>install-server</id>
 						<phase>pre-integration-test</phase>
 						<goals>
 							<goal>create-server</goal>
@@ -68,12 +64,12 @@
 						</configuration>
 					</execution>
 					<execution>
-					    <id>package-server</id>
+						<id>package-server</id>
 						<phase>post-integration-test</phase>
 						<goals>
 							<goal>package-server</goal>
 						</goals>
-					</execution>					
+					</execution>
 				</executions>
 			</plugin>
 			<plugin>
