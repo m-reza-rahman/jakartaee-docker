@@ -10,14 +10,14 @@ The first step to getting the application running is getting the database up. Pl
 * Make sure Docker is running. Open a console.
 * Enter the following command and wait for the database to come up fully.
 ```
-docker run -it --rm --name JavaEECafeDB -v pgdata:/var/lib/postgresql/data -p 5432:5432 postgres
+docker run -it --rm --name javaee-cafe-db -v pgdata:/var/lib/postgresql/data -p 5432:5432 postgres
 ```
 * The database is now ready (to stop it, simply press Control-C after the Java EE application is shutdown).
 
 ## Start the Application with Docker
 The next step is to get the application up and running. Follow the steps below to do so.
 
-* Browse to where you have this repository code in your file system. Go the external_volume directory.
+* Browse to where you have this repository code in your file system. Go to the external-volume directory.
 * You should explore the Dockerfile in this directory used to build the Docker image. It simply starts from the `websphere-liberty` image and copies the PostgreSqQL driver `postgresql-42.2.4.jar` into the `shared/resources` directory and replaces the defaultServer configuration file `server.xml`. Notice no war file is actually added to this image.
 * Pick a directory where you would like to have the applications auto-deployed from (such as /home/john/webapps). Make sure the directory is created and is empty. 
 * Open a console. Build a Docker image tagged `javaee-cafe` navigating to the external_volume/ directory as context and issuing the command:
