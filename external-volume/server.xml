@@ -21,25 +21,33 @@
 		encode and add it in the password attribute of the user element. Then uncomment 
 		the user element. -->
 	<basicRegistry id="basic" realm="BasicRealm">
-		<user name="admin" password="admin123"/>
+		<user name="admin" password="admin123" />
 	</basicRegistry>
 
-	<keyStore id="defaultKeyStore" password="admin123"/>
+	<keyStore id="defaultKeyStore" password="admin123" />
 
 	<!-- To access this server from a remote client add a host attribute to 
 		the following element, e.g. host="*" -->
-	<httpEndpoint host="*" httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint"/>
+	<httpEndpoint host="*" httpPort="9080" httpsPort="9443"
+		id="defaultHttpEndpoint" />
 
 	<!-- Automatically expand WAR files and EAR files -->
-	<applicationManager autoExpand="true"/>
+	<applicationManager autoExpand="true" />
 
-	<dataSource id="JavaEECafeDB" jdbcDriverRef="postgresql-driver" jndiName="jdbc/JavaEECafeDB" transactional="true" type="javax.sql.ConnectionPoolDataSource">
-		<properties databaseName="postgres" password="" portNumber="5432" serverName="172.17.0.2" user="postgres"/>
+	<dataSource id="JavaEECafeDB"
+		jdbcDriverRef="postgresql-driver" jndiName="jdbc/JavaEECafeDB"
+		transactional="true" type="javax.sql.ConnectionPoolDataSource">
+		<properties databaseName="postgres" password=""
+			portNumber="5432" serverName="172.17.0.2" user="postgres" />
 	</dataSource>
 
-	<jdbcDriver id="postgresql-driver" javax.sql.ConnectionPoolDataSource="org.postgresql.ds.PGConnectionPoolDataSource" javax.sql.XADataSource="org.postgresql.xa.PGXADataSource" libraryRef="postgresql-library"/>
+	<jdbcDriver id="postgresql-driver"
+		javax.sql.ConnectionPoolDataSource="org.postgresql.ds.PGConnectionPoolDataSource"
+		javax.sql.XADataSource="org.postgresql.xa.PGXADataSource"
+		libraryRef="postgresql-library" />
 
 	<library id="postgresql-library">
-		<fileset dir="${shared.resource.dir}" id="PostgreSQLFileset" includes="postgresql-42.2.4.jar"/>
+		<fileset dir="${shared.resource.dir}" id="PostgreSQLFileset"
+			includes="postgresql-42.2.4.jar" />
 	</library>
 </server>
