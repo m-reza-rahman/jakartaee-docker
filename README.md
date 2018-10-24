@@ -13,3 +13,6 @@ Factors demostrated include:
 * How your CI/CD pipeline looks like with Java EE, Docker and Kubernetes. The [jenkins-kubertenes](/jenkins-kubertenes) folder shows how this is done.
 
 The demos use Java EE 8, WebSphere Liberty, Google Cloud and Jenkins.
+
+#TODO
+* Use Kubernetes service host names.
