@@ -14,5 +14,5 @@ Factors demostrated include:
 
 The demos use Java EE 8, WebSphere Liberty, Google Cloud and Jenkins.
 
-#TODO
+# TODO
 * Use Kubernetes service host names.
