@@ -10,4 +10,4 @@ There are several key trade-offs to consider while using Docker and Kubernetes w
 This fast-paced, demo-driven session walks through each of these considerations in detail.
 
 * A video for the talk is [here](https://www.youtube.com/watch?v=x-tAP4YZCcY).
-* The demo code is [here](/).
+* The demo code is [here](https://github.com/m-reza-rahman/javaee-docker).
