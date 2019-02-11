@@ -17,3 +17,5 @@ The demos use Java EE 8, WebSphere Liberty, Google Cloud and Jenkins.
 
 # TODO
 * Use Kubernetes service host names.
+* Use Azure Kubernetes Service.
+* Finish Jenkins/Kubernetes section.
