@@ -8,6 +8,3 @@ There are several key trade-offs to consider while using Docker and Kubernetes w
 * How the CI/CD pipeline of your application can be adapted to Docker and Kubernetes.
 
 This entirely slide-less, fast-paced, demo-driven session walks through each of these considerations in detail.
-
-* A video for the talk is [here](https://www.youtube.com/watch?v=x-tAP4YZCcY).
-* The demo code is [here](https://github.com/m-reza-rahman/javaee-docker).
