@@ -13,9 +13,8 @@ Factors demostrated include:
 * How to make application server administration, clustering, autodiscovery and load-balancing work with Docker clusters, networking, and Kubernetes deployments. The [kubernetes-clustering](/kubernetes-clustering) folder shows how this is done.
 * How your CI/CD pipeline looks like with Java EE, Docker and Kubernetes. The [jenkins-kubertenes](/jenkins-kubertenes) folder shows how this is done.
 
-The demos use Java EE 8, WebSphere Liberty, Google Cloud and Jenkins.
+The demos use Java EE 8, WebSphere Liberty, Azure Kubernetes Service (AKS) and Jenkins.
 
 # TODO
 * Use Kubernetes service host names.
-* Use Azure Kubernetes Service.
 * Finish Jenkins/Kubernetes section.
