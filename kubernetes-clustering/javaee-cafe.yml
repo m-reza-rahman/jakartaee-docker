@@ -38,6 +38,7 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-    - port: 9080
+    - port: 80
+      targetPort: 9080
   selector:
     app: javaee-cafe
