@@ -14,10 +14,6 @@ This demo will show how to make application server administration, clustering, a
    kubectl create -f postgres.yml
    ```
 
-* Create a config map with the hostname of Postgres:
-   ```
-   kubectl create configmap hostname-config --from-literal=postgres_host=$(kubectl get svc postgres -o jsonpath="{.spec.clusterIP}")
-   ```
 * Open Eclipse.
 * Do a full build of the javaee-cafe application via Maven by going to Right click the application -> Run As -> Maven install.
 * Browse to where you have this repository code in your file system. You will now need to copy the war file to where we will build the Docker image next. You will find the war file under javaee/javaee-cafe/target. Copy the war file to kubernetes-clustering/.
@@ -57,11 +53,6 @@ This demo will show how to make application server administration, clustering, a
 * Delete the Java EE deployment:
    ```
    kubectl delete -f javaee-cafe.yml
-   ```
-
-* Delete the hostname config map:
-   ```
-   kubectl delete cm hostname-config
    ```
 
 * Delete Postgres:
