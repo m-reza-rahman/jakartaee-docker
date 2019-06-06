@@ -1,6 +1,6 @@
-# Java EE Application Server Clustering with Kubernetes
+# CI/CD of Java EE Applications with Kubernetes
 
-This demo will show how to make application server administration, clustering, autodiscovery and load-balancing work with Docker clusters, networking, and Kubernetes deployments.
+This demo will show how to do continous integration (CI)/continous delivery (CD) of Java EE applications using Kubernetes. We will use Azure DevOps Pipelines for our demo but you could easily use Jenkins or any other DevOps tool.
 
 ## Prerequisites
 
