@@ -11,7 +11,7 @@ Factors demostrated include:
 * Administering applications through admin ports exposed out of Docker (as opposed to just deploying applications within Docker images). The [exposed-port](/exposed-port) folder shows how this is done.
 * Auto-deploying applications through mounted external Docker volumes on the host (as opposed to deploying applications within Docker images). The [external-volume](/external-volume) folder shows how this is done.
 * How to make application server administration, clustering, autodiscovery and load-balancing work with Docker clusters, networking, and Kubernetes deployments. The [kubernetes-clustering](/kubernetes-clustering) folder shows how this is done.
-* How your CI/CD pipeline looks like with Java EE, Docker and Kubernetes. The [kubertenes-devops](/kubertenes-devops) folder shows how this is done.
+* How your CI/CD pipeline looks like with Java EE, Docker and Kubernetes. The [kubernetes-devops](/kubernetes-devops) folder shows how this is done.
 
 The demos use Java EE 8, WebSphere Liberty, Azure Kubernetes Service (AKS) and Azure DevOps Pipelines.
 
