@@ -15,6 +15,4 @@ Factors demostrated include:
 
 The demos use Java EE 8, WebSphere Liberty, Azure Kubernetes Service (AKS) and Jenkins.
 
-# TODO
-* Use Kubernetes service host names.
-* Finish Jenkins/Kubernetes section.
+* Finish Kubernetes/DevOps section.
