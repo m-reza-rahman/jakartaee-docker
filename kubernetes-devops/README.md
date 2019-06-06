@@ -5,7 +5,7 @@ This demo will show how to do continous integration (CI)/continous delivery (CD)
 ## Prerequisites
 
 - You need to have a Kubernetes cluster configured. We used the Azure Kubernetes Service but you can use any Kubernetes capable platform such as Google or IBM Cloud. You can even run Kubernetes locally.
-- You need to have a Docker Hub account.
+- You need to have a [Docker Hub](https://hub.docker.com) account.
 - You need to have an Azure DevOps Project. You can sign up for Azure DevOps for free [here](https://azure.microsoft.com/en-us/services/devops/). [Here](https://docs.microsoft.com/en-us/azure/devops/organizations/projects/create-project) are instructions on how to set up an Azure DevOps Project. Make sure you choose Git for source control.
 
 ## Deploy the Java EE Application and Postgres on Kubernetes
