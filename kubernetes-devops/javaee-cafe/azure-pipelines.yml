@@ -29,8 +29,7 @@ steps:
     kubernetesServiceEndpoint: 'javaee-cafe-cluster'
     command: 'delete'
     useConfigurationFile: true
-    configuration: 'kubernetes-devops/javaee-cafe/postgres.yml'
-    
+    configuration: 'kubernetes-devops/javaee-cafe/postgres.yml'    
 - task: Kubernetes@1
   inputs:
     connectionType: 'Kubernetes Service Connection'
