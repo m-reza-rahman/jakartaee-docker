@@ -14,7 +14,7 @@ This demo will show how to do continous integration (CI)/continous delivery (CD)
 
 ## Create Service Connections
 * Go to [Azure DevOps home](https://dev.azure.com).
-* Select your project. Click on project settings -> Pipelines -> Service connections -> New service connection -> GitHub.
+* Select your project. Click on project settings -> Pipelines -> Service connections -> New service connection -> GitHub. Provide a connection name. Click authorize. Click OK.
 
 
 
