@@ -13,6 +13,16 @@ This demo will show how to do continous integration (CI)/continous delivery (CD)
 * You will first need to have a Kubernetes cluster configured. We used the Azure Kubernetes Service but you can use any Kubernetes capable platform such as Google or IBM Cloud.
 * Go to the [Azure portal](http://portal.azure.com). Hit Create a resource -> Containers -> Kubernetes Service. Create a new resource group named javaee-cafe-group. Specify the cluster name as javaee-cafe-cluster. Hit Review + create. Hit Create.
 
+## Setup Kubernetes Tooling
+* You will now need to setup kubectl. [Here](https://kubernetes.io/docs/tasks/tools/install-kubectl/) are instructions on how to do that.
+* Next you will install the Azure CLI. [Here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) are instructions on how to do that.
+* You will then connect kubectl to the Kubernetes cluster you created. To do so, run the following command:
+
+   ```
+   az aks get-credentials --resource-group javaee-cafe-group --name javaee-cafe-cluster
+   ```
+  If you get an error about an already existing resource, you may need to delete the ~/.kube directory.
+
 ## Create Service Connections
 * Clone this repository into your own GitHub account.
 * Go to [Azure DevOps home](https://dev.azure.com).
