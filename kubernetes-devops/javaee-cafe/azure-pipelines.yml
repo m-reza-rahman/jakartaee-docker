@@ -1,8 +1,6 @@
 trigger:
 - master
 
-
-
 pool:
   vmImage: 'ubuntu-latest'
 
@@ -30,25 +28,25 @@ steps:
     kubernetesServiceEndpoint: 'javaee-cafe-cluster'
     command: 'delete'
     useConfigurationFile: true
-    configuration: 'postgres.yml'
+    configuration: 'kubernetes-devops/javaee-cafe/postgres.yml'
 - task: Kubernetes@1
   inputs:
     connectionType: 'Kubernetes Service Connection'
     kubernetesServiceEndpoint: 'javaee-cafe-cluster'
     command: 'create'
     useConfigurationFile: true
-    configuration: 'postgres.yml'
+    configuration: 'kubernetes-devops/javaee-cafe/postgres.yml'
 - task: Kubernetes@1
   inputs:
     connectionType: 'Kubernetes Service Connection'
     kubernetesServiceEndpoint: 'javaee-cafe-cluster'
     command: 'delete'
     useConfigurationFile: true
-    configuration: 'javaee-cafe.yml'
+    configuration: 'kubernetes-devops/javaee-cafe/javaee-cafe.yml'
 - task: Kubernetes@1
   inputs:
     connectionType: 'Kubernetes Service Connection'
     kubernetesServiceEndpoint: 'javaee-cafe-cluster'
     command: 'create'
     useConfigurationFile: true
-    configuration: 'javaee-cafe.yml'
+    configuration: 'kubernetes-devops/javaee-cafe/javaee-cafe.yml'
