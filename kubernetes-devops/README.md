@@ -4,6 +4,7 @@ This demo will show how to do continous integration (CI)/continous delivery (CD)
 
 ## Prerequisites
 
+- You will need a GitHub account.
 - You will need an Azure subscription. If you don't have one, you can get one for free for one year [here](https://azure.microsoft.com/en-us/free).
 - You need to have a [Docker Hub](https://hub.docker.com) account.
 - You need to have an Azure DevOps Project. You can sign up for Azure DevOps for free [here](https://azure.microsoft.com/en-us/services/devops/). [Here](https://docs.microsoft.com/en-us/azure/devops/organizations/projects/create-project) are instructions on how to set up an Azure DevOps Project. Make sure you choose Git for source control.
@@ -13,7 +14,7 @@ This demo will show how to do continous integration (CI)/continous delivery (CD)
 * Go to the [Azure portal](http://portal.azure.com). Hit Create a resource -> Containers -> Kubernetes Service. Create a new resource group named javaee-cafe-group. Specify the cluster name as javaee-cafe-cluster. Hit Review + create. Hit Create.
 
 ## Create Service Connections
-* Clone this 
+* Clone this repository into your own GitHub account.
 * Go to [Azure DevOps home](https://dev.azure.com).
 * Select your project. Click on project settings -> Pipelines -> Service connections -> New service connection -> GitHub. Provide a connection name. Click authorize. Click OK.
 * Select New service connection -> Docker Registry. Select Docker Hub as your registry type. Specify the connection name to be `<Your Docker Hub ID>`-docker-hub. Fill in your Docker ID, password and email. Click OK. 
