@@ -17,9 +17,9 @@ This demo will show how to do continous integration (CI)/continous delivery (CD)
 * Clone this repository into your own GitHub account.
 * Go to [Azure DevOps home](https://dev.azure.com).
 * Select your project. Click on project settings -> Pipelines -> Service connections -> New service connection -> GitHub. Provide a connection name. Click authorize. Click OK.
-* Select New service connection -> Docker Registry. Select Docker Hub as your registry type. Specify the connection name to be `<Your Docker Hub ID>`-docker-hub. Fill in your Docker ID, password and email. Click OK. 
+* Select New service connection -> Docker Registry. Select Docker Hub as your registry type. Specify the connection name to be docker-hub-`<Your Docker Hub ID>`. Fill in your Docker ID, password and email. Click OK. 
 * Select New service connection -> Kubernetes. Select Azure subscription as your authentication. Specify the connection name to be javaee-cafe-cluster. Select the cluster to be javaee-cafe-cluster. Click OK.
-* Select pipelines. Click new -> new build pipeline. Select GitHub as source control.  
+* Select pipelines. Click new -> new build pipeline. Select GitHub as source control. Select javaee-docker from your own repository. Select existing Azure Pipelines YAML file. Select /kubernetes-devops/javaee-cafe/azure-pipelines.yml as the path. Hit run.  
 
 
 ## Deploy the Java EE Application and Postgres on Kubernetes
