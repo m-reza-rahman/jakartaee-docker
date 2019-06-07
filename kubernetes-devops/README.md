@@ -40,9 +40,3 @@ This demo will show how to do continous integration (CI)/continous delivery (CD)
    kubectl get svc javaee-cafe --watch
    ```
   It may take a few minutes for the load balancer to be created. When the external IP changes over from *pending* to a valid IP, just hit Control-C to exit.
-
-   > **Note:** Use the command below to find the assigned IP address and port if you are running Kubernetes locally on `Minikube`:
-
- 	```
- 	minikube service javaee-cafe --url
- 	```
