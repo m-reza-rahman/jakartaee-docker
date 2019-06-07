@@ -29,34 +29,10 @@ This demo will show how to do continous integration (CI)/continous delivery (CD)
 * Select your project. Click on project settings -> Pipelines -> Service connections -> New service connection -> GitHub. Provide a connection name. Click authorize. Click OK.
 * Select New service connection -> Docker Registry. Select Docker Hub as your registry type. Specify the connection name to be docker-hub-`<Your Docker Hub ID>`. Fill in your Docker ID, password and email. Click OK. 
 * Select New service connection -> Kubernetes. Select Azure subscription as your authentication. Specify the connection name to be javaee-cafe-cluster. Select the cluster to be javaee-cafe-cluster. Click OK.
-* Select pipelines. Click new -> new build pipeline. Select GitHub as source control. Select javaee-docker from your own repository. Select existing Azure Pipelines YAML file. Select /kubernetes-devops/javaee-cafe/azure-pipelines.yml as the path. Hit run.  
 
-
-## Deploy the Java EE Application and Postgres on Kubernetes
-* Open a terminal. Navigate to where you have this repository code in your file system. Navigate to the kubernetes-clustering/ directory.
-* Deploy postgres with a persistent volume claim with the following command:
-   ```
-   kubectl create -f postgres.yml
-   ```
-
-* Open Eclipse.
-* Do a full build of the javaee-cafe application via Maven by going to Right click the application -> Run As -> Maven install.
-* Browse to where you have this repository code in your file system. You will now need to copy the war file to where we will build the Docker image next. You will find the war file under javaee/javaee-cafe/target. Copy the war file to kubernetes-clustering/.
-* Open a terminal. Navigate to where you have this repository code in your file system. Navigate to the kubernetes-clustering/ directory.
-* Log in to Docker Hub using the docker login command:
-   ```
-   docker login
-   ```
-* Build a Docker image and push the image to Docker Hub:
-   ```
-   docker build -t <your Docker Hub account>/javaee-cafe:v1 .
-   docker push <your Docker Hub account>/javaee-cafe:v1
-   ```
-* Replace the `<your Docker Hub account>` value with your account name in `javaee-cafe.yml` file, then deploy the application:
-   ```
-   kubectl create -f javaee-cafe.yml
-   ```
-
+## Create and Run the Pipeline
+* Select pipelines. Click new -> new build pipeline. Select GitHub as source control. Select javaee-docker from your own repository. Select existing Azure Pipelines YAML file. Select /kubernetes-devops/javaee-cafe/azure-pipelines.yml as the path. Hit run.
+* When the job finishes running, the application will be deployed to Kubernetes.
 * Get the External IP address of the Service, then the application will be accessible at `http://<External IP Address>/javaee-cafe`:
    ```
    kubectl get svc javaee-cafe --watch
@@ -68,19 +44,3 @@ This demo will show how to do continous integration (CI)/continous delivery (CD)
  	```
  	minikube service javaee-cafe --url
  	```
-
-* Scale your application:
-   ```
-   kubectl scale deployment javaee-cafe --replicas=3
-   ```
-   
-## Deleting the Resources
-* Delete the Java EE deployment:
-   ```
-   kubectl delete -f javaee-cafe.yml
-   ```
-
-* Delete Postgres:
-   ```
-   kubectl delete -f postgres.yml
-   ```
