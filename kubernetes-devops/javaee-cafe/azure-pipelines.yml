@@ -21,6 +21,7 @@ steps:
     repository: 'rezarahman/javaee-cafe'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
+    tags: 'v1'
 - task: Kubernetes@1
   inputs:
     connectionType: 'Kubernetes Service Connection'
