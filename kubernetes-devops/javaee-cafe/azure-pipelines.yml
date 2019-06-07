@@ -1,13 +1,15 @@
 trigger:
 - master
 
+
+
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
 - task: Maven@1
   inputs:
-    mavenPomFile: 'pom.xml'
+    mavenPomFile: 'kubernetes-devops/javaee-cafe/pom.xml'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.8'
