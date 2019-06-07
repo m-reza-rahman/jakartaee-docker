@@ -22,7 +22,7 @@ steps:
     containerRegistry: 'docker-hub-rezarahman'
     repository: 'rezarahman/javaee-cafe'
     command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
+    Dockerfile: 'kubernetes-devops/javaee-cafe/Dockerfile'
     tags: 'v1'
 - task: Kubernetes@1
   inputs:
