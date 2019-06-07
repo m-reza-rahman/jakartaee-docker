@@ -24,7 +24,7 @@ This demo will show how to do continous integration (CI)/continous delivery (CD)
   If you get an error about an already existing resource, you may need to delete the ~/.kube directory.
 
 ## Create Service Connections
-* Clone this repository into your own GitHub account. Make sure to update the kubernetes-devops/javaee-cafe/javaee-cafe.yml file to replace occurrences of `rezarahman` with `<Your Docker Hub ID>` on GitHub.
+* Clone this repository into your own GitHub account. Make sure to update the [kubernetes-devops/javaee-cafe/javaee-cafe.yml](javaee-cafe/javaee-cafe.yml) file to replace occurrences of `rezarahman` with `<Your Docker Hub ID>` on GitHub.
 * Go to [Azure DevOps home](https://dev.azure.com).
 * Select your project. Click on project settings -> Pipelines -> Service connections -> New service connection -> GitHub. Provide a connection name. Click authorize. Click OK.
 * Select New service connection -> Docker Registry. Select Docker Hub as your registry type. Specify the connection name to be docker-hub-`<Your Docker Hub ID>`. Fill in your Docker ID, password and email. Click OK. 
