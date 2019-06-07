@@ -12,6 +12,12 @@ This demo will show how to do continous integration (CI)/continous delivery (CD)
 * You will first need to have a Kubernetes cluster configured. We used the Azure Kubernetes Service but you can use any Kubernetes capable platform such as Google or IBM Cloud.
 * Go to the [Azure portal](http://portal.azure.com). Hit Create a resource -> Containers -> Kubernetes Service. Create a new resource group named javaee-cafe-group. Specify the cluster name as javaee-cafe-cluster. Hit Review + create. Hit Create.
 
+## Create Service Connections
+* Go to [Azure DevOps home](https://dev.azure.com).
+* Select your project. Click on project settings -> Pipelines -> Service connections -> New service connection -> GitHub.
+
+
+
 ## Deploy the Java EE Application and Postgres on Kubernetes
 * Open a terminal. Navigate to where you have this repository code in your file system. Navigate to the kubernetes-clustering/ directory.
 * Deploy postgres with a persistent volume claim with the following command:
