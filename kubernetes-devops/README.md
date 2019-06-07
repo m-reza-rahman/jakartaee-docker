@@ -33,7 +33,7 @@ This demo will show how to do continous integration (CI)/continous delivery (CD)
 ## Create and Run the Pipeline
 * Select pipelines. Click new -> new build pipeline. Select GitHub as source control. Select javaee-docker from your own repository. Select existing Azure Pipelines YAML file. Select /kubernetes-devops/javaee-cafe/azure-pipelines.yml as the path. 
 
-* In the YAML file, replace occurrences of `rezarahman` with `<Your Docker Hub ID>`. When done, hit run.
+* In the YAML file, replace occurrences of `rezarahman` with `<Your Docker Hub ID>`. When done, hit save and hit run.
 * When the job finishes running, the application will be deployed to Kubernetes.
 * Get the External IP address of the Service, then the application will be accessible at `http://<External IP Address>/javaee-cafe`:
    ```
