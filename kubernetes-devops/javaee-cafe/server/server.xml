@@ -3,6 +3,7 @@
 	<!-- Enable features -->
 	<featureManager>
 		<feature>javaee-8.0</feature>
+		<feature>sessionDatabase-1.0</feature>
 	</featureManager>
 
 	<!-- This template enables security. To get the full use of all the capabilities, 
@@ -28,8 +29,13 @@
 
 	<!-- To access this server from a remote client add a host attribute to 
 		the following element, e.g. host="*" -->
-	<httpEndpoint httpPort="9080" httpsPort="9443"
+	<httpEndpoint host="*" httpPort="9080" httpsPort="9443"
 		id="defaultHttpEndpoint" />
+
+	<httpSessionDatabase id="SessionDB"
+		dataSourceRef="JavaEECafeDB" />
+
+	<httpSession storageRef="SessionDB" />
 
 	<!-- Automatically expand WAR files and EAR files -->
 	<applicationManager autoExpand="true" />
@@ -37,8 +43,9 @@
 	<dataSource id="JavaEECafeDB"
 		jdbcDriverRef="postgresql-driver" jndiName="jdbc/JavaEECafeDB"
 		transactional="true" type="javax.sql.ConnectionPoolDataSource">
-		<properties databaseName="postgres" password=""
-			portNumber="5432" serverName="localhost" user="postgres" />
+		<properties databaseName="postgres"
+			password="${env.POSTGRES_PASSWORD}" portNumber="5432"
+			serverName="postgres" user="${env.POSTGRES_USER}" />
 	</dataSource>
 
 	<jdbcDriver id="postgresql-driver"
