@@ -14,5 +14,3 @@ Factors demostrated include:
 * How your CI/CD pipeline looks like with Java EE, Docker and Kubernetes. The [kubernetes-devops](/kubernetes-devops) folder shows how this is done.
 
 The demos use Java EE 8, WebSphere Liberty, Azure Kubernetes Service (AKS) and Azure DevOps Pipelines.
-
-* Finish Kubernetes/DevOps section.
