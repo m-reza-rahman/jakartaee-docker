@@ -8,7 +8,7 @@
 	<version>0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>${project.artifactId}</name>
-	<description>This is the basic Java EE application used throughout the Docker and Kubertenes demos.
+	<description>This is the basic Java EE application used throughout the Docker and Kubernetes demos.
         It is a simple CRUD application. It uses Maven and Java EE 8 (JAX-RS, EJB, CDI, JPA, JSON-B, JSF, Bean Validation).
     </description>
 	<properties>
