@@ -1,4 +1,4 @@
-# Using Uber Jars
+# Java EE Uber Jars with Docker and WebSphere Liberty
 This demo will show an alternative way of deploying Java EE applications on Docker. The application server is packaged inside a self-contained jar that will run inside Docker. The application will be run without any external dependencies.
 
 ## Start the Database with Docker
