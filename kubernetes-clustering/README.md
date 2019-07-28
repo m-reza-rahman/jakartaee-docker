@@ -7,6 +7,10 @@ This demo will show how to make application server administration, clustering, a
 - You need to have a Kubernetes cluster with kubectl installed and configured to use your cluster. We used the Azure Kubernetes Service but you can use any Kubernetes capable platform such as Google or IBM Cloud. You can even run Kubernetes locally.
 - You need to have docker CLI installed and you must be signed into your Docker Hub account. To create a Docker Hub account go to [https://hub.docker.com](https://hub.docker.com).
 
+## Setup the Kubernetes Cluster
+* You will need an Azure subscription. If you don't have one, you can get one for free for one year [here](https://azure.microsoft.com/en-us/free).
+* You will first need to create the Kubernetes cluster. Go to the [Azure portal](http://portal.azure.com). Hit Create a resource -> Containers -> Kubernetes Service. Select the resource group to be azure-cafe-group-<your suffix> (the suffix could be your first name such as "reza"). Specify the cluster name as azure-cafe-cluster-<your suffix> (the suffix could be your first name such as "reza"). Hit Review + create. Hit Create.
+
 ## Deploy the Java EE Application and Postgres on Kubernetes
 * Open a terminal. Navigate to where you have this repository code in your file system. Navigate to the kubernetes-clustering/ directory.
 * Deploy postgres with a persistent volume claim with the following command:
