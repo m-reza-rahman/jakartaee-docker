@@ -9,7 +9,7 @@ This demo will show how to make application server administration, clustering, a
 
 ## Setup the Kubernetes Cluster
 * You will need an Azure subscription. If you don't have one, you can get one for free for one year [here](https://azure.microsoft.com/en-us/free).
-* You will first need to create the Kubernetes cluster. Go to the [Azure portal](http://portal.azure.com). Hit Create a resource -> Containers -> Kubernetes Service. Select the resource group to be azure-cafe-group-`<your suffix>` (the suffix could be your first name such as "reza"). Specify the cluster name as azure-cafe-cluster-`<your suffix>` (the suffix could be your first name such as "reza"). Hit Review + create. Hit Create.
+* You will first need to create the Kubernetes cluster. Go to the [Azure portal](http://portal.azure.com). Hit Create a resource -> Containers -> Kubernetes Service. Select the resource group to be javaee-cafe-group-`<your suffix>` (the suffix could be your first name such as "reza"). Specify the cluster name as javaee-cafe-cluster-`<your suffix>` (the suffix could be your first name such as "reza"). Hit Review + create. Hit Create.
 
 ## Setup Kubernetes Tooling
 * You will now need to setup kubectl. [Here](https://kubernetes.io/docs/tasks/tools/install-kubectl/) are instructions on how to do that.
@@ -17,7 +17,7 @@ This demo will show how to make application server administration, clustering, a
 * You will then connect kubectl to the Kubernetes cluster you created. To do so, run the following command:
 
    ```
-   az aks get-credentials --resource-group azure-cafe-group-<your suffix> --name azure-cafe-cluster-<your suffix>
+   az aks get-credentials --resource-group javaee-cafe-group-<your suffix> --name javaee-cafe-cluster-<your suffix>
    ```
   If you get an error about an already existing resource, you may need to delete the ~/.kube directory.
 
