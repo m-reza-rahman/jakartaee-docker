@@ -1,5 +1,5 @@
 # Effective Docker and Kubernetes for Java EE Developers
-This repository shows several key trade-offs to consider while using Docker and Kubernetes with Java EE applications. The repository hosts the demos for [this](abstract.md) talk or [this](lab-abstract.md) lab. A video for the talk is [here](https://www.youtube.com/watch?v=x-tAP4YZCcY).
+This repository shows several key trade-offs to consider while using Docker and Kubernetes with Java EE applications. The repository hosts the demos for [this](abstract.md) talk or [this](lab-abstract.md) lab (if you are utilizing the lab, please do look through the [lab instructions](lab-instructions.md)). A video for the talk is [here](https://www.youtube.com/watch?v=x-tAP4YZCcY).
 
 The basic Java EE application used throughout is in the [javaee](/javaee) folder. 
 
