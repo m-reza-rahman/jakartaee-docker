@@ -15,31 +15,6 @@ Factors demostrated include:
 
 The demos use Java EE 8, WebSphere Liberty, Azure Kubernetes Service (AKS) and Azure DevOps Pipelines.
 
-
-
-## Prerequisites:
-
-- JDK 8 (https://openjdk.java.net/projects/jdk8/)
-- Maven (https://maven.apache.org)
-- Git (https://git-scm.com)
-- An IDE (In some parts of this repo are presented with Eclipse)
-
-- To run locally as a standalone application
-	- WebSphere Liberty (https://www.ibm.com/cloud/websphere-liberty)
-	
-- To run locally as an containerized application
-	- Docker (https://www.docker.com/get-started)
-	- Minikube (https://kubernetes.io/docs/tasks/tools/install-minikube/)
-	- A Docker hub account (https://hub.docker.com)
-
-- To run on Cloud
-	- A Cloud Kubernetes Engine Service
-	- A Docker hub account (https://hub.docker.com)
-	- A Github account (https://github.com)
-
-
-Whether you run locally or cloud you need an internet connection
-
 ## Hands on Lab path
 Each of the parts of this repository can be run independently, which means you can go directly to the parts you interest the most. Below some recommendations
 
