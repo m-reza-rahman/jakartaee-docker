@@ -1,4 +1,4 @@
-# Setup Instructions
+# Lab Setup Instructions
 The following are the setup instructions for the lab.
 
 * Please bring your laptop and ensure a reliable internet connection.
