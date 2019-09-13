@@ -1,5 +1,5 @@
 # Setup Instructions
-The following are the instructions for the lab.
+The following are the setup instructions for the lab.
 
 * Please bring your laptop and ensure a reliable internet connection.
 * Install JDK 8 (we used [AdoptOpenJDK OpenJDK 8 LTS/HotSpot](https://adoptopenjdk.net)).
