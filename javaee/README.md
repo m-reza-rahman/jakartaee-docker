@@ -7,7 +7,6 @@ We use Eclipse but you can use any Maven capable IDE such as NetBeans. We use We
 
 - Install JDK 8 (we used [AdoptOpenJDK OpenJDK 8 LTS/HotSpot](https://adoptopenjdk.net)).
 - Install the Eclipse IDE for Java EE Developers from [here](https://www.eclipse.org/downloads/packages/).
-- Install WebSphere Liberty in Eclipse by following the instructions [here](https://developer.ibm.com/wasdev/downloads/liberty-profile-using-eclipse/). Make sure to install WebSphere Liberty with full Java EE 8 (you can automatically download right from the IDE).
 - Install Docker for your OS.
 - Download this repository somewhere in your file system (easiest way might be to download as a zip and extract).
 
@@ -23,6 +22,8 @@ docker run -it --rm --name javaee-cafe-db -v pgdata:/var/lib/postgresql/data -p 
 ## Running the Application
 The next step is to get the application up and running. Follow the steps below to do so.
 * Start Eclipse.
+* Go to the 'Servers' panel, right click. Select New -> Server -> IBM -> WebSphere Application Server Liberty Server Adapter. Click Next. Accept the license agreement, click Finish.
+* After the Eclipse WebSphere Liberty adapters are done installing, go to the 'Servers' panel again, right click. Select New -> Server -> IBM -> Liberty Server. Click Next. Select "Install from an archive or a repository". Click Next. Enter the destination path to install WebSphere Liberty. Select "Download and install a new runtime environment from ibm.com". Choose the "WAS Liberty with Java EE 8 Full Platform" option. Click next. Install the Java EE 8 Full Platform Bundle. Click Next. Accept the license agreement and click Next. Click Finish. When you are done, WebSphere Liberty will be set up in Eclipse.
 * Find out where Eclipse has installed WebSphere Liberty in your file system. In the Servers panel, double click to open the WebSphere Liberty configuration. Click on Runtime Environment. Note the installation path.
 * Browse to where you have this repository code in your file system. You will need to copy the server.xml and Postgres driver to the WebSphere install location. Both of these files are located under javaee/server. Copy the Postgres driver into the WebSphere Liberty installation location under usr/shared/resources. Now copy the server.xml into usr/servers/[your-server-name]/. The server name is probably defaultServer or newServer.
 * Get the javaee-cafe application into the IDE. In order to do that, go to File -> Import -> Maven -> Existing Maven Projects. Then browse to where you have this repository code in your file system and select javaee/javaee-cafe. Accept the rest of the defaults and finish.
