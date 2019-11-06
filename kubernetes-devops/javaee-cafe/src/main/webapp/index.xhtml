@@ -43,7 +43,7 @@
 				</h:column>
 				<h:column>
 					<h:commandLink value="#{messages.delete}"
-						action="#{cafe.removeCoffee(coffee.get('id'))}" immediate="true" />
+						action="#{cafe.removeCoffee(coffee.id)}" immediate="true" />
 				</h:column>
 			</h:dataTable>
 			<div class="panel panel-default">
