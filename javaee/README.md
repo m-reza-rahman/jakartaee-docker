@@ -22,7 +22,7 @@ docker run -it --rm --name javaee-cafe-db -v pgdata:/var/lib/postgresql/data -p 
 ## Running the Application
 The next step is to get the application up and running. Follow the steps below to do so.
 * Start Eclipse.
-* Go to the 'Servers' panel, right click. Select New -> Server -> IBM. Choose the WebSphere Liberty option.
+* Go to the 'Servers' panel, right click. Select New -> Server -> IBM -> WebSphere Application Server Liberty Server Adapter. Click Next. Accept the license agreement, click Finish.
 * After the Eclipse WebSphere Liberty adapters are done installing, go to the 'Servers' panel again, right click. Select New -> Server -> IBM and select WebSphere Liberty. Click through to download and install WebSphere Liberty from the online repository. When you are done, WebSphere Liberty will be setup in Eclipse.
 * Find out where Eclipse has installed WebSphere Liberty in your file system. In the Servers panel, double click to open the WebSphere Liberty configuration. Click on Runtime Environment. Note the installation path.
 * Browse to where you have this repository code in your file system. You will need to copy the server.xml and Postgres driver to the WebSphere install location. Both of these files are located under javaee/server. Copy the Postgres driver into the WebSphere Liberty installation location under usr/shared/resources. Now copy the server.xml into usr/servers/[your-server-name]/. The server name is probably defaultServer or newServer.
