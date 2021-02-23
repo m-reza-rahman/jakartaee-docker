@@ -1,4 +1,4 @@
-FROM azul/zulu-openjdk-alpine:11-jre
+FROM ibmjava:8-jre
 
 WORKDIR /
 
