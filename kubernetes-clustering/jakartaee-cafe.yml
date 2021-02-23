@@ -1,10 +1,13 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: jakartaee-cafe
   namespace: default
 spec:
   replicas: 2
+  selector:
+    matchLabels:
+      app: jakartaee-cafe  
   template:
     metadata:
       name: jakartaee-cafe
