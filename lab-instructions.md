@@ -3,7 +3,7 @@ The following are the setup instructions for the lab (do look at the diferent op
 
 * Please bring your laptop and ensure a reliable internet connection.
 * Install Java SE 8 or Java SE 11 (we used [Azul Zulu Java 11 LTS](https://www.azul.com/downloads/zulu-community/)).
-* Install the Eclipse IDE for Enterprise Developers from [here](https://www.eclipse.org/downloads/packages/).
+* Install the Eclipse IDE for Enterprise Java Developers from [here](https://www.eclipse.org/downloads/packages/).
 * Install Docker for your OS.
 * You will need a GitHub account.
 * You need to have a [Docker Hub](https://hub.docker.com) account.
