@@ -1,5 +1,5 @@
-# Java EE Thin Wars with Docker and WebSphere Liberty
-This demo shows using Java EE thin wars with Docker repositories, layering, and caching. It uses Liberty server under Docker using the `websphere-liberty` image that is available from the online Docker Hub repository. The following is how you run the demo.
+# Jakarta EE Thin Wars with Docker and WebSphere Liberty
+This demo shows using Java/Jakarta EE thin wars with Docker repositories, layering, and caching. It uses Liberty server under Docker using the `websphere-liberty` image that is available from the online Docker Hub repository. The following is how you run the demo.
 
 ## Start the Database with Docker
 The first step to getting the application running is getting the database up. Please follow the instructions below to get the database running.
@@ -8,7 +8,7 @@ The first step to getting the application running is getting the database up. Pl
 * Make sure Docker is running. Open a console.
 * Enter the following command and wait for the database to come up fully.
 ```
-docker run -it --rm --name javaee-cafe-db -v pgdata:/var/lib/postgresql/data -p 5432:5432 postgres
+docker run -it --rm -e POSTGRES_HOST_AUTH_METHOD=trust --name jakartaee-cafe-db -v pgdata:/var/lib/postgresql/data -p 5432:5432 postgres
 ```
 * The database is now ready (to stop it, simply press Control-C after the Java EE application is shutdown).
 
