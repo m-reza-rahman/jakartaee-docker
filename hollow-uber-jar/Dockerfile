@@ -8,6 +8,6 @@ RUN installUtility install jpa-2.2 --acceptLicense
 RUN installUtility install jsonb-1.0 --acceptLicense
 RUN installUtility install jaxb-2.2 --acceptLicense
 
-COPY postgresql-42.2.4.jar /opt/ibm/wlp/usr/shared/resources/
+COPY postgresql-42.2.18.jar /opt/ibm/wlp/usr/shared/resources/
 COPY server.xml /config/
-ADD javaee-cafe.war /config/dropins/javaee-cafe.war
+ADD jakartaee-cafe.war /config/dropins/jakartaee-cafe.war
