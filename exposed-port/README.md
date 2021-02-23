@@ -18,8 +18,8 @@ The next step is to get the application up and running. Follow the steps below t
 * Open Eclipse.
 * Do a full build of the jakartaee-cafe application via Maven by going to Right click the application -> Run As -> Maven install.
 * Browse to where you have this repository code in your file system. You will now need to copy the war file to where we will build the Docker image. You will find the war file under jakartaee/jakartaee-cafe/target. Copy the war file to exposed-port/.
-* You should explore the Dockerfile in this directory used to build the Docker image. It starts from the `websphere-liberty` image, adds the `jakartaee-cafe.war` from the current directory in to the `dropins` directory, copies the PostgreSQL driver `postgresql-42.2.18.jar` into the `shared/resources` directory and replaces the defaultServer configuration file `server.xml`. Note that we also use the WebSphere installation utility to install the admin center that we will use to administer the application.
-* You should also note the `server.xml`. We have added an admin role to access the adminstrative tool with.
+* You should explore the Dockerfile in this directory used to build the Docker image. It starts from the `websphere-liberty` image, adds the `jakartaee-cafe.war` from the current directory in to the `dropins` directory, copies the PostgreSQL driver `postgresql-42.2.18.jar` into the `shared/resources` directory and replaces the defaultServer configuration file `server.xml`.
+* You should also note the `server.xml`. We have enabled the console and added an admin role to access the console with.
 * Open a console. Build a Docker image tagged `jakartaee-cafe` navigating to the exposed-port/ directory as context and issuing the command:
 
 	```
