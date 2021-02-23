@@ -1,53 +1,48 @@
 <server description="defaultServer">
 
-	<!-- Enable features -->
-	<featureManager>
-		<feature>javaee-8.0</feature>
-	</featureManager>
+    <!-- Enable features -->
+    <featureManager>
+        <feature>javaee-8.0</feature>
+    </featureManager>
 
-	<!-- This template enables security. To get the full use of all the capabilities, 
-		a keystore and user registry are required. -->
+    <!-- This template enables security. To get the full use of all the capabilities, a keystore and 
+        user registry are required. -->
 
-	<!-- For the keystore, default keys are generated and stored in a keystore. 
-		To provide the keystore password, generate an encoded password using bin/securityUtility 
-		encode and add it below in the password attribute of the keyStore element. 
-		Then uncomment the keyStore element. -->
-	<!-- <keyStore password=""/> -->
+    <!-- For the keystore, default keys are generated and stored in a keystore. To provide the keystore 
+        password, generate an encoded password using bin/securityUtility encode and add it below in the password 
+        attribute of the keyStore element. Then uncomment the keyStore element. -->
+    <!-- <keyStore password=""/> -->
 
-	<!--For a user registry configuration, configure your user registry. For 
-		example, configure a basic user registry using the basicRegistry element. 
-		Specify your own user name below in the name attribute of the user element. 
-		For the password, generate an encoded password using bin/securityUtility 
-		encode and add it in the password attribute of the user element. Then uncomment 
-		the user element. -->
-	<basicRegistry id="basic" realm="BasicRealm">
-		<user name="admin" password="admin123" />
-	</basicRegistry>
+    <!--For a user registry configuration, configure your user registry. For example, configure a basic 
+        user registry using the basicRegistry element. Specify your own user name below in the name attribute 
+        of the user element. For the password, generate an encoded password using bin/securityUtility encode 
+        and add it in the password attribute of the user element. Then uncomment the user element. -->
+    <basicRegistry id="basic" realm="BasicRealm">
+        <user name="admin" password="admin123" />
+    </basicRegistry>
 
-	<keyStore id="defaultKeyStore" password="admin123" />
+    <keyStore id="defaultKeyStore" password="admin123" />
 
-	<!-- To access this server from a remote client add a host attribute to 
-		the following element, e.g. host="*" -->
-	<httpEndpoint host="*" httpPort="9080" httpsPort="9443"
-		id="defaultHttpEndpoint" />
+    <!-- To access this server from a remote client add a host attribute to the following element, e.g. 
+        host="*" -->
+    <httpEndpoint host="*" httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint" />
 
-	<!-- Automatically expand WAR files and EAR files -->
-	<applicationManager autoExpand="true" />
+    <!-- Automatically expand WAR files and EAR files -->
+    <applicationManager autoExpand="true" />
 
-	<dataSource id="JavaEECafeDB"
-		jdbcDriverRef="postgresql-driver" jndiName="jdbc/JavaEECafeDB"
-		transactional="true" type="javax.sql.ConnectionPoolDataSource">
-		<properties databaseName="postgres" password=""
-			portNumber="5432" serverName="172.17.0.2" user="postgres" />
-	</dataSource>
+    <dataSource id="JakartaEECafeDB" jdbcDriverRef="postgresql-driver"
+        jndiName="jdbc/JakartaEECafeDB" transactional="true"
+        type="javax.sql.ConnectionPoolDataSource">
+        <properties databaseName="postgres" password="" portNumber="5432"
+            serverName="172.17.0.2" user="postgres" />
+    </dataSource>
 
-	<jdbcDriver id="postgresql-driver"
-		javax.sql.ConnectionPoolDataSource="org.postgresql.ds.PGConnectionPoolDataSource"
-		javax.sql.XADataSource="org.postgresql.xa.PGXADataSource"
-		libraryRef="postgresql-library" />
+    <jdbcDriver id="postgresql-driver"
+        javax.sql.ConnectionPoolDataSource="org.postgresql.ds.PGConnectionPoolDataSource"
+        javax.sql.XADataSource="org.postgresql.xa.PGXADataSource" libraryRef="postgresql-library" />
 
-	<library id="postgresql-library">
-		<fileset dir="${shared.resource.dir}" id="PostgreSQLFileset"
-			includes="postgresql-42.2.4.jar" />
-	</library>
+    <library id="postgresql-library">
+        <fileset dir="${shared.resource.dir}" id="PostgreSQLFileset"
+            includes="postgresql-42.2.18.jar" />
+    </library>
 </server>

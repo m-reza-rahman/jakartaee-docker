@@ -27,74 +27,83 @@ import cafe.model.entity.Coffee;
 @SessionScoped
 public class Cafe implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-	private static final Logger logger = Logger.getLogger(MethodHandles.lookup().lookupClass().getName());
+  private static final long serialVersionUID = 1L;
+  private static final Logger logger =
+      Logger.getLogger(MethodHandles.lookup().lookupClass().getName());
 
-	private String baseUri;
-	private transient Client client;
+  private String baseUri;
+  private transient Client client;
 
-	@NotNull
-	@NotEmpty
-	protected String name;
-	@NotNull
-	protected Double price;
-	protected List<Coffee> coffeeList;
+  @NotNull @NotEmpty protected String name;
+  @NotNull protected Double price;
+  protected List<Coffee> coffeeList;
 
-	public String getName() {
-		return name;
-	}
+  public String getName() {
+    return name;
+  }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+  public void setName(String name) {
+    this.name = name;
+  }
 
-	public Double getPrice() {
-		return price;
-	}
+  public Double getPrice() {
+    return price;
+  }
 
-	public void setPrice(Double price) {
-		this.price = price;
-	}
+  public void setPrice(Double price) {
+    this.price = price;
+  }
 
-	public List<Coffee> getCoffeeList() {
-		return coffeeList;
-	}
+  public List<Coffee> getCoffeeList() {
+    return coffeeList;
+  }
 
-	@PostConstruct
-	private void init() {
-		try {
-			InetAddress inetAddress = InetAddress.getByName(
-					((HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest())
-							.getServerName());
+  @PostConstruct
+  private void init() {
+    try {
+      InetAddress inetAddress =
+          InetAddress.getByName(
+              ((HttpServletRequest)
+                      FacesContext.getCurrentInstance().getExternalContext().getRequest())
+                  .getServerName());
 
-			baseUri = FacesContext.getCurrentInstance().getExternalContext().getRequestScheme() + "://"
-					+ inetAddress.getHostName() + ":"
-					+ FacesContext.getCurrentInstance().getExternalContext().getRequestServerPort()
-					+ "/javaee-cafe/rest/coffees";
-			this.client = ClientBuilder.newClient();
-			this.getAllCoffees();
-		} catch (IllegalArgumentException | NullPointerException | WebApplicationException | UnknownHostException ex) {
-			logger.severe("Processing of HTTP response failed.");
-			ex.printStackTrace();
-		}
-	}
+      baseUri =
+          FacesContext.getCurrentInstance().getExternalContext().getRequestScheme()
+              + "://"
+              + inetAddress.getHostName()
+              + ":"
+              + FacesContext.getCurrentInstance().getExternalContext().getRequestServerPort()
+              + "/jakartaee-cafe/rest/coffees";
+      this.client = ClientBuilder.newClient();
+      this.getAllCoffees();
+    } catch (IllegalArgumentException
+        | NullPointerException
+        | WebApplicationException
+        | UnknownHostException ex) {
+      logger.severe("Processing of HTTP response failed.");
+      ex.printStackTrace();
+    }
+  }
 
-	private void getAllCoffees() {
-		this.coffeeList = this.client.target(this.baseUri).path("/").request(MediaType.APPLICATION_JSON)
-				.get(new GenericType<List<Coffee>>() {
-				});
-	}
+  private void getAllCoffees() {
+    this.coffeeList =
+        this.client
+            .target(this.baseUri)
+            .path("/")
+            .request(MediaType.APPLICATION_JSON)
+            .get(new GenericType<List<Coffee>>() {});
+  }
 
-	public void addCoffee() {
-		Coffee coffee = new Coffee(this.name, this.price);
-		this.client.target(baseUri).request(MediaType.APPLICATION_JSON).post(Entity.json(coffee));
-		this.name = null;
-		this.price = null;
-		this.getAllCoffees();
-	}
+  public void addCoffee() {
+    Coffee coffee = new Coffee(this.name, this.price);
+    this.client.target(baseUri).request(MediaType.APPLICATION_JSON).post(Entity.json(coffee));
+    this.name = null;
+    this.price = null;
+    this.getAllCoffees();
+  }
 
-	public void removeCoffee(String coffeeId) {
-		this.client.target(baseUri).path(coffeeId).request().delete();
-		this.getAllCoffees();
-	}
+  public void removeCoffee(String coffeeId) {
+    this.client.target(baseUri).path(coffeeId).request().delete();
+    this.getAllCoffees();
+  }
 }

@@ -13,67 +13,64 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQuery(name = "findAllCoffees", query = "SELECT o FROM Coffee o")
 public class Coffee implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    
-    @Id
-    @GeneratedValue
-    private Long id;
-    protected String name;
-    protected Double price;
+  private static final long serialVersionUID = 1L;
 
-    public Coffee() {
-    }
+  @Id @GeneratedValue private Long id;
+  protected String name;
+  protected Double price;
 
-    public Coffee(String name, Double price) {
-        this.name = name;
-        this.price = price;
-    }
+  public Coffee() {}
 
-    public String getName() {
-        return name;
-    }
+  public Coffee(String name, Double price) {
+    this.name = name;
+    this.price = price;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public Double getPrice() {
-        return price;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public void setPrice(Double price) {
-        this.price = price;
-    }
+  public Double getPrice() {
+    return price;
+  }
 
-    public Long getId() {
-        return id;
-    }
+  public void setPrice(Double price) {
+    this.price = price;
+  }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    @Override
-    public boolean equals(Object object) {
-        if (!(object instanceof Coffee)) {
-            return false;
-        }
-        Coffee other = (Coffee) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
+  @Override
+  public int hashCode() {
+    int hash = 0;
+    hash += (id != null ? id.hashCode() : 0);
+    return hash;
+  }
 
-    @Override
-    public String toString() {
-        return "cafe.model.entity.Coffee[id=" + id + ", name=" +name + ", price=" + price+"]";
+  @Override
+  public boolean equals(Object object) {
+    if (!(object instanceof Coffee)) {
+      return false;
     }
+    Coffee other = (Coffee) object;
+    if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+      return false;
+    }
+    return true;
+  }
+
+  @Override
+  public String toString() {
+    return "cafe.model.entity.Coffee[id=" + id + ", name=" + name + ", price=" + price + "]";
+  }
 }
