@@ -34,8 +34,8 @@
 	<!-- Automatically expand WAR files and EAR files -->
 	<applicationManager autoExpand="true" />
 
-	<dataSource id="JavaEECafeDB"
-		jdbcDriverRef="postgresql-driver" jndiName="jdbc/JavaEECafeDB"
+	<dataSource id="JakartaEECafeDB"
+		jdbcDriverRef="postgresql-driver" jndiName="jdbc/JakartaEECafeDB"
 		transactional="true" type="javax.sql.ConnectionPoolDataSource">
 		<properties databaseName="postgres" password=""
 			portNumber="5432" serverName="localhost" user="postgres" />
