@@ -19,7 +19,7 @@ The next step is to get the application up and running. Follow the steps below t
 * Get the uber jar version of the jakartaee-cafe application into the IDE. In order to do that, go to File -> Import -> Maven -> Existing Maven Projects. Then browse to where you have this repository code in your file system and select uber-jar/jakartaee-cafe. Accept the rest of the defaults and finish.
 * Once the application loads, you should do a full Maven build by going to Right click the application -> Run As -> Maven install.
 * Browse to where you have this repository code in your file system. Go to the uber-jar/jakartaee-cafe directory.
-* You should explore the Dockerfile in this directory used to build the Docker image. It starts from the `azul/zulu-openjdk-alpine:11-jre` image, adds the `jakartaee-cafe.jar` from the current directory into the Docker image and runs the jar. 
+* You should explore the Dockerfile in this directory used to build the Docker image. It starts from the `ibmjava:8-jre` image, adds the `jakartaee-cafe.jar` from the current directory into the Docker image and runs the jar. 
 * Open a console. Build a Docker image tagged `jakartaee-cafe` navigating to the uber-jar/jakartaee-cafe directory as context and issuing the command:
 
 	```
