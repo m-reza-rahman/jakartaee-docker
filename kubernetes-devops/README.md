@@ -1,6 +1,6 @@
-# CI/CD of Java EE Applications with Kubernetes
+# CI/CD of Jakarta EE Applications with Kubernetes
 
-This demo will show how to do continous integration (CI)/continous delivery (CD) of Java EE applications using Kubernetes. We will use Azure DevOps Pipelines for our demo but you could easily use Jenkins or any other DevOps tool.
+This demo will show how to do continous integration (CI)/continous delivery (CD) of Java/Jakarta EE applications using Kubernetes. We will use Azure DevOps Pipelines for our demo but you could easily use Jenkins or any other DevOps tool.
 
 ## Prerequisites
 
@@ -11,7 +11,7 @@ This demo will show how to do continous integration (CI)/continous delivery (CD)
 
 ## Setup the Kubernetes Cluster
 * You will first need to have a Kubernetes cluster configured. We used the Azure Kubernetes Service but you can use any Kubernetes capable platform such as Google or IBM Cloud.
-* Go to the [Azure portal](http://portal.azure.com). Hit Create a resource -> Containers -> Kubernetes Service. Create a new resource group named javaee-cafe-group-`<your suffix>` (the suffix could be your first name such as "reza"). Specify the cluster name as javaee-cafe-cluster-`<your suffix>` (the suffix could be your first name such as "reza"). Hit Review + create. Hit Create.
+* Go to the [Azure portal](http://portal.azure.com). Hit Create a resource -> Containers -> Kubernetes Service. Create a new resource group named jakartaee-cafe-group-`<your suffix>` (the suffix could be your first name such as "reza"). Specify the cluster name as jakartaee-cafe-cluster-`<your suffix>` (the suffix could be your first name such as "reza"). Hit Review + create. Hit Create.
 
 ## Setup Kubernetes Tooling
 * You will now need to setup kubectl. [Here](https://kubernetes.io/docs/tasks/tools/install-kubectl/) are instructions on how to do that.
@@ -19,24 +19,24 @@ This demo will show how to do continous integration (CI)/continous delivery (CD)
 * You will then connect kubectl to the Kubernetes cluster you created. To do so, run the following command:
 
    ```
-   az aks get-credentials --resource-group javaee-cafe-group-`<your suffix>` --name javaee-cafe-cluster-`<your suffix>`
+   az aks get-credentials --resource-group jakartaee-cafe-group-`<your suffix>` --name jakartaee-cafe-cluster-`<your suffix>`
    ```
   If you get an error about an already existing resource, you may need to delete the ~/.kube directory.
 
 ## Create Service Connections
-* Clone this repository into your own GitHub account. Make sure to update the [kubernetes-devops/javaee-cafe/javaee-cafe.yml](javaee-cafe/javaee-cafe.yml) file to replace occurrences of `rezarahman` with `<Your Docker Hub ID>` on GitHub.
+* Clone this repository into your own GitHub account. Make sure to update the [kubernetes-devops/jakartaee-cafe/jakartaee-cafe.yml](jakartaee-cafe/jakartaee-cafe.yml) file to replace occurrences of `rezarahman` with `<Your Docker Hub ID>` on GitHub.
 * Go to [Azure DevOps home](https://dev.azure.com).
 * Select your project. Click on project settings -> Pipelines -> Service connections -> New service connection -> GitHub. Provide a connection name. Click authorize. Click OK.
 * Select New service connection -> Docker Registry. Select Docker Hub as your registry type. Specify the connection name to be docker-hub-`<Your Docker Hub ID>`. Fill in your Docker ID, password and email. Click OK. 
-* Select New service connection -> Kubernetes. Select Azure subscription as your authentication. Specify the connection name to be javaee-cafe-cluster. Select the cluster to be javaee-cafe-cluster-`<your suffix>`. Click OK.
+* Select New service connection -> Kubernetes. Select Azure subscription as your authentication. Specify the connection name to be jakartaee-cafe-cluster. Select the cluster to be jakartaee-cafe-cluster-`<your suffix>`. Click OK.
 
 ## Create and Run the Pipeline
-* Select pipelines. Click new -> new build pipeline. Select GitHub as source control. Select javaee-docker from your own repository. Select existing Azure Pipelines YAML file. Select /kubernetes-devops/javaee-cafe/azure-pipelines.yml as the path. 
+* Select pipelines. Click new -> new build pipeline. Select GitHub as source control. Select jakartaee-docker from your own repository. Select existing Azure Pipelines YAML file. Select /kubernetes-devops/jakartaee-cafe/azure-pipelines.yml as the path. 
 
 * In the YAML file, replace occurrences of `rezarahman` with `<Your Docker Hub ID>`. When done, hit save and hit run.
 * When the job finishes running, the application will be deployed to Kubernetes.
-* Get the External IP address of the Service, then the application will be accessible at `http://<External IP Address>/javaee-cafe`:
+* Get the External IP address of the Service, then the application will be accessible at `http://<External IP Address>/jakartaee-cafe`:
    ```
-   kubectl get svc javaee-cafe --watch
+   kubectl get svc jakartaee-cafe --watch
    ```
   It may take a few minutes for the load balancer to be created. When the external IP changes over from *pending* to a valid IP, just hit Control-C to exit.
