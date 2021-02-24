@@ -27,7 +27,7 @@ spec:
               configMapKeyRef:
                 name: postgres-config
                 key: postgres_password
-        image: rezarahman/jakartaee-cafe:v3
+        image: rezarahman/jakartaee-cafe:v2
 ---
 apiVersion: v1
 kind: Service
