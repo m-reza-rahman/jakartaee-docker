@@ -29,14 +29,7 @@ steps:
     kubernetesServiceEndpoint: 'jakartaee-cafe-cluster'
     command: 'delete'
     useConfigurationFile: true
-    configuration: 'kubernetes-devops/jakartaee-cafe/postgres.yml'    
-- task: Kubernetes@1
-  inputs:
-    connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceEndpoint: 'jakartaee-cafe-cluster'
-    command: 'create'
-    useConfigurationFile: true
-    configuration: 'kubernetes-devops/jakartaee-cafe/postgres.yml'
+    configuration: 'kubernetes-devops/jakartaee-cafe/jakartaee-cafe.yml'
 - task: Kubernetes@1
   continueOnError: true
   inputs:
@@ -44,7 +37,14 @@ steps:
     kubernetesServiceEndpoint: 'jakartaee-cafe-cluster'
     command: 'delete'
     useConfigurationFile: true
-    configuration: 'kubernetes-devops/jakartaee-cafe/jakartaee-cafe.yml'
+    configuration: 'kubernetes-devops/jakartaee-cafe/postgres.yml'
+- task: Kubernetes@1
+  inputs:
+    connectionType: 'Kubernetes Service Connection'
+    kubernetesServiceEndpoint: 'jakartaee-cafe-cluster'
+    command: 'create'
+    useConfigurationFile: true
+    configuration: 'kubernetes-devops/jakartaee-cafe/postgres.yml'
 - task: Kubernetes@1
   inputs:
     connectionType: 'Kubernetes Service Connection'
