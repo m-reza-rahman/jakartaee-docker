@@ -36,7 +36,7 @@ steps:
     repository: 'rezarahman/jakartaee-cafe'
     command: 'buildAndPush'
     Dockerfile: 'kubernetes-devops/jakartaee-cafe/Dockerfile'
-    tags: 'v3'
+    tags: 'v2'
 - task: Kubernetes@1
   continueOnError: true
   inputs:
