@@ -1,18 +1,21 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: javaee-cafe
+  name: jakartaee-cafe
   namespace: default
 spec:
   replicas: 2
+  selector:
+    matchLabels:
+      app: jakartaee-cafe  
   template:
     metadata:
-      name: javaee-cafe
+      name: jakartaee-cafe
       labels:
-        app: javaee-cafe
+        app: jakartaee-cafe
     spec:
       containers:
-      - name: javaee-cafe
+      - name: jakartaee-cafe
         env:
           - name: POSTGRES_USER
             valueFrom:
@@ -24,16 +27,16 @@ spec:
               configMapKeyRef:
                 name: postgres-config
                 key: postgres_password
-        image: rezarahman/javaee-cafe:v1
+        image: rezarahman/jakartaee-cafe:v1
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: javaee-cafe
+  name: jakartaee-cafe
 spec:
   type: LoadBalancer
   ports:
     - port: 80
       targetPort: 9080
   selector:
-    app: javaee-cafe
+    app: jakartaee-cafe

@@ -1,5 +1,5 @@
 FROM websphere-liberty
 
-COPY server/postgresql-42.2.4.jar /opt/ibm/wlp/usr/shared/resources/
-COPY server/server.xml /config/
-ADD target/javaee-cafe.war /config/dropins/javaee-cafe.war
+COPY postgresql-42.2.18.jar /opt/ibm/wlp/usr/shared/resources/
+COPY server.xml /config/
+ADD jakartaee-cafe.war /config/dropins/jakartaee-cafe.war

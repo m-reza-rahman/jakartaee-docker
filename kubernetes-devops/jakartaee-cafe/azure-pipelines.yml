@@ -7,7 +7,7 @@ pool:
 steps:
 - task: Maven@1
   inputs:
-    mavenPomFile: 'kubernetes-devops/javaee-cafe/pom.xml'
+    mavenPomFile: 'kubernetes-devops/jakartaee-cafe/pom.xml'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.8'
@@ -18,37 +18,37 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'docker-hub-rezarahman'
-    repository: 'rezarahman/javaee-cafe'
+    repository: 'rezarahman/jakartaee-cafe'
     command: 'buildAndPush'
-    Dockerfile: 'kubernetes-devops/javaee-cafe/Dockerfile'
+    Dockerfile: 'kubernetes-devops/jakartaee-cafe/Dockerfile'
     tags: 'v1'
 - task: Kubernetes@1
   continueOnError: true
   inputs:
     connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceEndpoint: 'javaee-cafe-cluster'
+    kubernetesServiceEndpoint: 'jakartaee-cafe-cluster'
     command: 'delete'
     useConfigurationFile: true
-    configuration: 'kubernetes-devops/javaee-cafe/postgres.yml'    
+    configuration: 'kubernetes-devops/jakartaee-cafe/postgres.yml'    
 - task: Kubernetes@1
   inputs:
     connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceEndpoint: 'javaee-cafe-cluster'
+    kubernetesServiceEndpoint: 'jakartaee-cafe-cluster'
     command: 'create'
     useConfigurationFile: true
-    configuration: 'kubernetes-devops/javaee-cafe/postgres.yml'
+    configuration: 'kubernetes-devops/jakartaee-cafe/postgres.yml'
 - task: Kubernetes@1
   continueOnError: true
   inputs:
     connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceEndpoint: 'javaee-cafe-cluster'
+    kubernetesServiceEndpoint: 'jakartaee-cafe-cluster'
     command: 'delete'
     useConfigurationFile: true
-    configuration: 'kubernetes-devops/javaee-cafe/javaee-cafe.yml'
+    configuration: 'kubernetes-devops/jakartaee-cafe/jakartaee-cafe.yml'
 - task: Kubernetes@1
   inputs:
     connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceEndpoint: 'javaee-cafe-cluster'
+    kubernetesServiceEndpoint: 'jakartaee-cafe-cluster'
     command: 'create'
     useConfigurationFile: true
-    configuration: 'kubernetes-devops/javaee-cafe/javaee-cafe.yml'
+    configuration: 'kubernetes-devops/jakartaee-cafe/jakartaee-cafe.yml'
